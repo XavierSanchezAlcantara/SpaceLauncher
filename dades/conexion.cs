@@ -9,38 +9,132 @@ using MySql.Data.MySqlClient;
 using CryptSharp;
 using SpaceLauncher.model;
 using System.Windows.Forms.VisualStyles;
+using System.Linq.Expressions;
+using System.Security.Cryptography;
+using Magnum.Extensions;
+using MySqlX.XDevAPI.Common;
 
 namespace SpaceLauncher
 {
     class conexion
     {
         //Creem la variable nom i la contrasenya.
-        string nombre, contrasena;
         //creem el setters
-        public void p_nombre_set(string valor)
-        {
-            nombre = valor;
-        }
-        public void p_clave_set(string valor)
-        {
-            contrasena = valor;
-        }
+        tiempoJugado tiempoJugados = new tiempoJugado();
         MySqlConnection conectar = new MySqlConnection("server=spacelauncher.sytes.net;database=prova_db;Uid=xavi;pwd=Admin1234");
 
+        public Boolean mysqlRegister(usuari user)
+        {
+            try
+            {
+                conectar.Open();
+                string passEncriptado = Crypter.Phpass.Crypt(user.Clave);
+                MySqlCommand comandom = new MySqlCommand("INSERT INTO usuarios (usuario , email, clave,sexo,fechaNacimiento) VALUES (" + '"' + user.Usuario + '"' + ", " + '"' + 
+                    user.Email + '"' + ", " + '"' + passEncriptado + '"' + ", " + '"' + user.Sexo + '"' + ", " + '"' + user.FechaNacimiento + '"' + ")", conectar);
+                comandom.ExecuteNonQuery();
+                if (true)
+                {
+                    //Si s'inserta correctament
+                    conectar.Close();
+                    //tanquem conexio a la bbdd
+                    return true;
 
-        public Boolean mysqlLogin()
+                }
+
+            }
+            catch (Exception ex)
+            {
+                conectar.Close();
+
+                logs.Save("Error al registrar usuario!",10);
+                return false;
+            }
+        }
+        public String mysqlEmail(string usuario)
+        {
+            try
+            {
+                conectar.Open();
+                //Executem la comanda per agafar la contrasenya del usuaari introduit.
+                MySqlCommand comandom = new MySqlCommand("Select email from usuarios where usuario='" + usuario + "'", conectar);
+                //Convertim el objecte MySqlCommand a String.
+                string resultado = comandom.ExecuteScalar().ToString();
+                conectar.Close();
+
+                return resultado;
+            }
+            catch
+            {
+                conectar.Close();
+
+                logs.Save("Error al consultar el email en la BBDD!",10);
+
+                return "";
+            }
+
+
+        }
+        public String mysqlSexe(string usuario)
+        {
+            try
+            {
+                conectar.Open();
+                //Executem la comanda per agafar la contrasenya del usuaari introduit.
+                MySqlCommand comandom = new MySqlCommand("Select sexo from usuarios where usuario='" + usuario + "'", conectar);
+                //Convertim el objecte MySqlCommand a String.
+                string resultado = comandom.ExecuteScalar().ToString();
+                conectar.Close();
+
+                return resultado;
+            }
+            catch
+            {
+                conectar.Close();
+
+                logs.Save("Error al consultar el email en la BBDD!", 10);
+
+                return "";
+            }
+
+
+        }
+        public String mysqlFechaNacimiento(string usuario)
+        {
+            try
+            {
+                conectar.Open();
+                //Executem la comanda per agafar la contrasenya del usuaari introduit.
+                MySqlCommand comandom = new MySqlCommand("Select fechaNacimiento from usuarios where usuario='" + usuario + "'", conectar);
+                //Convertim el objecte MySqlCommand a String.
+                string resultado = comandom.ExecuteScalar().ToString();
+                conectar.Close();
+
+                return resultado;
+            }
+            catch
+            {
+                conectar.Close();
+
+                logs.Save("Error al consultar el email en la BBDD!", 10);
+
+                return "";
+            }
+
+
+        }
+        public Boolean mysqlLogin(usuari user)
         {
             //Creem la conexio a la base de dades
             //Obrim la conexio
             try
             {
                 conectar.Open();
-                //Executem la comanda per agafar la contrasenya del usuaari introduit.
-                MySqlCommand comandom = new MySqlCommand("Select clave from usuarios where usuario='" + nombre + "'", conectar);
+                //Executem la comanda per agafar la contrasenya del usuari introduit.
+                MySqlCommand comandom = new MySqlCommand("Select clave from usuarios where usuario='" + user.Usuario + "'", conectar);
                 //Convertim el objecte MySqlCommand a String.
                 string contrasenaEncriptada = comandom.ExecuteScalar().ToString();
                 //Comprova si la contrasenya es correcte.
-                bool matches = Crypter.CheckPassword(contrasena, contrasenaEncriptada);
+                bool matches = Crypter.CheckPassword(user.Clave, contrasenaEncriptada);
 
                 if (matches)
                 {
@@ -58,15 +152,20 @@ namespace SpaceLauncher
                     return false;
                 }
             }
-            catch {
+            catch
+            {
+                conectar.Close();
+
+                logs.Save("Error al consultar datos login en la BBDD!",10);
                 return false;
             }
         }
-        public Boolean mysqlJuego(tiempoJugado juego) {
+        public Boolean mysqlJuego(tiempoJugado juego)
+        {
             conectar.Open();
-            MySqlCommand comandom = new MySqlCommand("INSERT INTO tiempoJugado (idUsuario , idJuego , tiempoJugado , fecha ) VALUES (" + '"' + juego.NombreUsuario + '"'+ ", " + '"' + juego.NombreJuego + '"' + ", " + '"' + juego.Tiempo + '"' + "," + '"' + juego.Fecha + '"' + ")", conectar);
-            comandom.ExecuteNonQuery();
-            if (true)
+            MySqlCommand comandom = new MySqlCommand("INSERT INTO tiempoJugado (idUsuario , idJuego , tiempoJugado , fecha ) VALUES (" + '"' + juego.NombreUsuario + '"' + ", " + '"' + juego.NombreJuego + '"' + ", " + '"' + juego.Tiempo + '"' + "," + '"' + juego.Fecha + '"' + ")", conectar);
+            int comando= comandom.ExecuteNonQuery();
+            if (comando != 0)
             {
                 //Si s'inserta correctament
                 conectar.Close();
@@ -83,67 +182,217 @@ namespace SpaceLauncher
             }
         }
 
-        // Consultar a la BBDD registres d'hores Jugades.
-        public int tiempoJugado(tiempoJugado juego) {
-            int temps=0;
-            String[] tot;
-            conectar.Open();
-            MySqlCommand comandom = new MySqlCommand("Select tiempoJugado from tiempoJugado where idUsuario=" + '"' + juego.NombreUsuario +'"'+" and idJuego = "+'"'+juego.NombreJuego+'"' , conectar);
-            MySqlDataReader read = comandom.ExecuteReader();
-            string h="", m="", s="";
 
-            while (read.Read()) {
-                String total= (String.Format("{0}",read[0]));
-                int i= 0;
-                tot=total.Split(':');
-                foreach(String tota in tot){
-                    Console.WriteLine("{0}:{1}", i,tota);
-                    switch(i)
-                        {
-                        case 0:
-                            h = tota;
-                            break;
-                        case 1:
-                            m = tota;
-                            break;
-                        case 2:
-                            s = tota;
-                            break;
-                        default:
-                            Console.WriteLine("Error");
-                            break;
-                     }
-                    i++;
-                    
-                }
-                temps += Int32.Parse(calcularTiempo2(h, m, s));
+        // Consultar a la BBDD registres d'hores Jugades.
+        public int tiempoJugado(tiempoJugado juego)
+        {
+            int temps = 0;
+            try
+            {
                 
+                String[] tot;
+                conectar.Open();
+                MySqlCommand comandom = new MySqlCommand("Select tiempoJugado from tiempoJugado where idUsuario=" + '"' + juego.NombreUsuario + '"' + " and idJuego = " + '"' + juego.NombreJuego + '"', conectar);
+                MySqlDataReader read = comandom.ExecuteReader();
+                string h = "", m = "", s = "";
+
+                while (read.Read())
+                {
+                    String total = (String.Format("{0}", read[0]));
+                    int i = 0;
+                    tot = total.Split(':');
+                    foreach (String tota in tot)
+                    {
+                        Console.WriteLine("{0}:{1}", i, tota);
+                        switch (i)
+                        {
+                            case 0:
+                                h = tota;
+                                break;
+                            case 1:
+                                m = tota;
+                                break;
+                            case 2:
+                                s = tota;
+                                break;
+                            default:
+                                Console.WriteLine("Error");
+                                break;
+                        }
+                        i++;
+
+                    }
+                    temps += Int32.Parse(tiempoJugados.calcularTiempo2(h, m, s));
+
+
+                }
+
+                conectar.Close();
+                return temps;
+            }
+            catch {
+                conectar.Close();
+
+                return temps;
+
 
             }
-    
-            conectar.Close();
-            return temps;
-            
 
         }
-
-        //Funcio per a convertir hores minuts segons a nomes segons.
-        private String calcularTiempo2(String h,String m,String s)
-
+        public int tiempoJugadototal(string usuario)
         {
-            int hh, mm, t;
-           int h2, m2, s2;
-            h2 = Int32.Parse(h);
-            m2 = Int32.Parse(m);
-            s2 = Int32.Parse(s);
-            hh = h2 * 3600;
-            mm = m2 * 60;
-            t = hh + mm + s2;
-            Console.WriteLine(t.ToString());
-            return t.ToString();
+            try
+            {
+                int temps = 0;
+                String[] tot;
+                conectar.Open();
+                MySqlCommand comandom = new MySqlCommand("Select tiempoJugado from tiempoJugado where idUsuario = " + '"' + usuario + '"', conectar);
+                MySqlDataReader read = comandom.ExecuteReader();
+                string h = "", m = "", s = "";
+
+                while (read.Read())
+                {
+                    String total = (String.Format("{0}", read[0]));
+                    int i = 0;
+                    tot = total.Split(':');
+                    foreach (String tota in tot)
+                    {
+                        Console.WriteLine("{0}:{1}", i, tota);
+                        switch (i)
+                        {
+                            case 0:
+                                h = tota;
+                                break;
+                            case 1:
+                                m = tota;
+                                break;
+                            case 2:
+                                s = tota;
+                                break;
+                            default:
+
+                                break;
+                        }
+                        i++;
+
+                    }
+                    temps += Int32.Parse(tiempoJugados.calcularTiempo2(h, m, s));
 
 
+                }
+
+                conectar.Close();
+                return temps;
+            }
+            catch (Exception ex)
+            {
+                conectar.Close();
+
+                logs.Save("Error en el tiempoJugadoTotal",002);
+
+                return 0;
+            }
 
         }
+        public Boolean mysqlUpdateUser(usuari user)
+        {
+            try
+            {
+                conectar.Open();
+                string passEncriptado = Crypter.MD5.Crypt(user.Clave);
+                MySqlCommand comandom = new MySqlCommand("UPDATE usuarios SET email =" + "'" + user.Email + "'" + ", clave = " + "'" + passEncriptado + "'" + ", sexo = " + "'" + user.Sexo + "'" + ", fechaNacimiento = " + "'" + user.FechaNacimiento + "'" + " WHERE usuario = " + "'" + user.Usuario + "'", conectar);
+                comandom.ExecuteNonQuery();
+                if (true)
+                {
+                    //Si es fa l'update correctament correctament
+                    conectar.Close();
+                    //tanquem conexio a la bbdd
+                    return true;
+
+                }
+
+
+            }
+            catch (Exception ex)
+            {
+                conectar.Close();
+
+                logs.Save("Error al modificar usuario!",10);
+                return false;
+            }
+        }
+
+
+
+
+
+        //////////////////////////////////////////
+        ///               Consultar juegos tabla
+        //////////////////////////////////////////
+        public List<juego> guardarEnTablaBuscar(string juego)
+        {
+            List<juego> juegosGuardar = new List<juego>();
+            juego juegos;
+            try
+            {
+                conectar.Open();
+                MySqlCommand comandom = new MySqlCommand("Select * from juegos where nombreJuego like '%" + juego+"%'" , conectar);
+                MySqlDataReader comando = comandom.ExecuteReader();
+                while (comando.Read())
+                {
+
+                    juegos = new juego((int)comando[0], (String)comando[1]);
+                    juegosGuardar.Add(juegos);
+                }
+                conectar.Close();
+
+                return juegosGuardar;
+
+            }
+            catch
+            {
+                conectar.Close();
+
+                logs.Save("Error Al consultar juegos!!!",10);
+            }
+            conectar.Close();
+
+            return juegosGuardar;
+
+        }
+
+
+        public List<juego> guardarEnTabla(string nombreTabla) 
+        {
+            List<juego> juegosGuardar = new List<juego>();
+            juego juegos;
+            try
+            {
+                conectar.Open();
+                MySqlCommand comandom = new MySqlCommand("Select * from " + nombreTabla, conectar);
+                MySqlDataReader comando = comandom.ExecuteReader();
+                while (comando.Read())
+                {
+                    juegos = new juego((int)comando[0], (String)comando[1]);
+                    juegosGuardar.Add(juegos);
+                }
+                conectar.Close();
+
+                return juegosGuardar;
+
+            }
+            catch {
+                logs.Save("Error Al consultar juegos!!!",10);
+                conectar.Close();
+
+            }
+            conectar.Close();
+
+            return juegosGuardar;
+
+        }
+        
+       
+
     }
 }

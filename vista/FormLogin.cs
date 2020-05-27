@@ -12,6 +12,7 @@ using System.Security.Cryptography;
 using System.Text;
 using CryptSharp;
 using SpaceLauncher.model;
+using Microsoft.VisualBasic.ApplicationServices;
 
 namespace SpaceLauncher
 {
@@ -50,7 +51,7 @@ namespace SpaceLauncher
 
         //Definim que a l'entrar a contrasenya es buidi, també definim que es vegi en forma de password
 
-        private void txtpass_Enter(object sender, 
+        private void txtpass_Enter(object sender,
             EventArgs e)
         {
             if (txtpass.Text == "CONTRASEÑA")
@@ -105,35 +106,38 @@ namespace SpaceLauncher
         {
             try
             {
+                usuari user = new usuari(txtuser.Text, txtpass.Text);
                 conexion obj_conectar = new conexion();
-                obj_conectar.p_nombre_set(txtuser.Text);
-                obj_conectar.p_clave_set(txtpass.Text);
-                Boolean prova = obj_conectar.mysqlLogin();
+                Boolean prova = obj_conectar.mysqlLogin(user);
                 if (prova)
                 {
-                    FormPrincipal form = new FormPrincipal(txtuser.Text);
+                    FormPrincipal form = new FormPrincipal(user.Usuario);
                     form.Show();
                     this.Hide();
                 }
                 else
                 {
-                    loginError.Text="Usuario o contraseña incorrectos.";
+                    loginError.Text = "Usuario o contraseña incorrectos.";
                 }
-            }catch(Exception ex) {
-                
-                logs.Save("error en el login", ex);
             }
-            
+            catch (Exception ex)
+            {
+                logs.Save("Error al consultar dades de login a la BBDD.",100);
+            }
+
 
         }
 
 
         private void linkpass_LinkClicked_1(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            System.Diagnostics.Process.Start("http://spacelauncher.sytes.net/register.php");
+            FormRegister form = new FormRegister();
+            form.Show();
+            this.Hide();
         }
-
-
     }
+
+    
+
 
 }
