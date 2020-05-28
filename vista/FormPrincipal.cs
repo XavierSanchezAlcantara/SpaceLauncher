@@ -416,6 +416,7 @@ namespace SpaceLauncher
 
         //Accions al clicar al boto editar perfil
 
+
         private void bunifuFlatButton2_Click_1(object sender, EventArgs e)
         {
             try
@@ -492,12 +493,10 @@ namespace SpaceLauncher
             }
 
         }
-
-
-
-
-
+        
         //clase jugar
+
+        
         
         public void jugar(string game)
         {
