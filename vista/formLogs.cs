@@ -22,18 +22,32 @@ namespace SpaceLauncher.vista
                 dataGridView1.Rows.Clear();
                 foreach (logs log in loge.leer())
                 {
-                    dataGridView1.Rows.Add(new object[] { log.Fecha,log.Hora, log.Code, log.Error });
+                    dataGridView1.Rows.Add(new object[] { log.Fecha, log.Hora, log.Code, log.Error });
                 }
             }
             catch
             {
-                logs.Save("Error al cargar datos a dataGridView", 100);
+                logs.Save("Error al cargar logs!", 50);
             }
+
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-            
+            try
+            {
+                dataGridView1.Rows.Clear();
+                foreach (logs log in loge.leer())
+                {
+                    dataGridView1.Rows.Add(new object[] { log.Fecha, log.Hora, log.Code, log.Error });
+                }
+            }
+            catch
+            {
+                logs.Save("Error al cargar logs!", 50);
+            }
         }
+
+
     }
 }

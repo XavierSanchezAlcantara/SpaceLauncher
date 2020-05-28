@@ -122,7 +122,7 @@ namespace SpaceLauncher
             }
             catch (Exception ex)
             {
-                logs.Save("Error al consultar dades de login a la BBDD.",100);
+                logs.Save("Error al consultar dades de login a la BBDD.",120);
             }
 
 

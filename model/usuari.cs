@@ -51,7 +51,26 @@ namespace SpaceLauncher.model
             {
                 if (contraseña.Length >= 6)
                 {
-                    return true;
+                    bool containsUpperCase = contraseña.Any(char.IsUpper);
+
+                    if (containsUpperCase) {
+                        bool containsLowerCase = contraseña.Any(char.IsLower); 
+                        if (containsLowerCase){
+                            bool containsNumber = contraseña.Any(char.IsDigit);
+                            if(containsNumber){
+                                return true;
+                            }
+                            else {
+                                return false;
+                            }
+                        }
+                        else {
+                            return false;
+                        }
+                    }
+                    else {
+                        return false;
+                    }
                 }
                 else {
                     return false;

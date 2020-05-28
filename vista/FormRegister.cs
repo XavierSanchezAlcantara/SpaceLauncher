@@ -123,7 +123,7 @@ namespace SpaceLauncher
             SendMessage(this.Handle, 0x112, 0xf012, 0);
         }
 
-        //Accions al clicar el boto login.
+        //Accions al clicar el boto Register.
         private void btnLogin_Click(object sender, EventArgs e)
         {
             try
@@ -156,13 +156,13 @@ namespace SpaceLauncher
                 }
                 else
                 {
-                    loginError.Text = "Contraseña demasiado corta.";
+                    loginError.Text = "Contraseña introducida no valida.";
                 }
             }
             catch (Exception ex)
             {
 
-                logs.Save("Error al consultar Introducir usuario.",10);
+                logs.Save("Error al Insertar nuevoUsuario.",20);
             }
 
 

@@ -46,7 +46,7 @@ namespace SpaceLauncher
             {
                 conectar.Close();
 
-                logs.Save("Error al registrar usuario!",10);
+                logs.Save("Error al Insertar nuevoUsuario!", 20);
                 return false;
             }
         }
@@ -67,7 +67,7 @@ namespace SpaceLauncher
             {
                 conectar.Close();
 
-                logs.Save("Error al consultar el email en la BBDD!",10);
+                logs.Save("Error al consultar el email en la BBDD!",30);
 
                 return "";
             }
@@ -91,7 +91,7 @@ namespace SpaceLauncher
             {
                 conectar.Close();
 
-                logs.Save("Error al consultar el email en la BBDD!", 10);
+                logs.Save("Error al consultar el sexo en la BBDD!", 60);
 
                 return "";
             }
@@ -115,7 +115,7 @@ namespace SpaceLauncher
             {
                 conectar.Close();
 
-                logs.Save("Error al consultar el email en la BBDD!", 10);
+                logs.Save("Error al consultar el fechaNacimiento en la BBDD!", 40);
 
                 return "";
             }
@@ -162,22 +162,30 @@ namespace SpaceLauncher
         }
         public Boolean mysqlJuego(tiempoJugado juego)
         {
-            conectar.Open();
-            MySqlCommand comandom = new MySqlCommand("INSERT INTO tiempoJugado (idUsuario , idJuego , tiempoJugado , fecha ) VALUES (" + '"' + juego.NombreUsuario + '"' + ", " + '"' + juego.NombreJuego + '"' + ", " + '"' + juego.Tiempo + '"' + "," + '"' + juego.Fecha + '"' + ")", conectar);
-            int comando= comandom.ExecuteNonQuery();
-            if (comando != 0)
+            try
             {
-                //Si s'inserta correctament
-                conectar.Close();
-                //tanquem conexio a la bbdd
-                return true;
+                conectar.Open();
+                MySqlCommand comandom = new MySqlCommand("INSERT INTO tiempoJugado (idUsuario , idJuego , tiempoJugado , fecha ) VALUES (" + '"' + juego.NombreUsuario + '"' + ", " + '"' + juego.NombreJuego + '"' + ", " + '"' + juego.Tiempo + '"' + "," + '"' + juego.Fecha + '"' + ")", conectar);
+                int comando = comandom.ExecuteNonQuery();
+                if (comando != 0)
+                {
+                    //Si s'inserta correctament
+                    conectar.Close();
+                    //tanquem conexio a la bbdd
+                    return true;
 
+                }
+                else
+                {
+                    //Si no s'inserta correctament.
+                    conectar.Close();
+                    //tanquem conexio a la bbdd
+                    return false;
+                }
             }
-            else
-            {
-                //Si no s'inserta correctament.
+            catch {
                 conectar.Close();
-                //tanquem conexio a la bbdd
+                logs.Save("Error al insertar tiempoJugado!!", 70);
                 return false;
             }
         }
@@ -232,7 +240,7 @@ namespace SpaceLauncher
             }
             catch {
                 conectar.Close();
-
+                logs.Save("Error al consultar tiempoJugado!", 80);
                 return temps;
 
 
@@ -288,7 +296,7 @@ namespace SpaceLauncher
             {
                 conectar.Close();
 
-                logs.Save("Error en el tiempoJugadoTotal",002);
+                logs.Save("Error al consultar tiempoJugadoTotal!", 90);
 
                 return 0;
             }
@@ -317,7 +325,7 @@ namespace SpaceLauncher
             {
                 conectar.Close();
 
-                logs.Save("Error al modificar usuario!",10);
+                logs.Save("Error al modificar usuario!",100);
                 return false;
             }
         }
@@ -353,7 +361,7 @@ namespace SpaceLauncher
             {
                 conectar.Close();
 
-                logs.Save("Error Al consultar juegos!!!",10);
+                logs.Save("Error Al consultar juegos!!!",110);
             }
             conectar.Close();
 
@@ -382,7 +390,7 @@ namespace SpaceLauncher
 
             }
             catch {
-                logs.Save("Error Al consultar juegos!!!",10);
+                logs.Save("Error Al consultar juegos!!!",110);
                 conectar.Close();
 
             }

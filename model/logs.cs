@@ -22,7 +22,7 @@ namespace SpaceLauncher.model
         public int Code { get => code; set => code = value; }
         public string Fecha { get => fecha; set => fecha = value; }
 
-        public logs(string fecha,string hora, string error, int code)
+        public logs(string fecha, string hora, string error, int code)
         {
             this.fecha = fecha;
             this.hora = hora;
@@ -37,18 +37,19 @@ namespace SpaceLauncher.model
         public static void Save(string error, int codeError)
         {
             string hora = System.DateTime.Now.ToString("HH:mm:ss");
-            string fecha = System.DateTime.Now.ToString("yyyy-MM-dd");
+            string fecha = System.DateTime.Now.ToString("dd/MM/yyyy");
             string path = Directory.GetCurrentDirectory() + "\\" + "logs" + "\\" + "logs.txt";
             if (!File.Exists(path))
             {
                 // Create a file to write to.
                 using (StreamWriter sw = File.CreateText(path))
                 {
-                    sw.WriteLine(fecha+" - "+hora+" - "+codeError+" - "+error);
+                    sw.WriteLine(fecha + " - " + hora + " - " + codeError + " - " + error);
                     sw.Close();
                 }
             }
-            else {
+            else
+            {
                 using (StreamWriter sw = File.AppendText(path))
                 {
                     sw.WriteLine(fecha + " - " + hora + " - " + codeError + " - " + error);
@@ -67,36 +68,36 @@ namespace SpaceLauncher.model
                 }
             }
         }
-        public List<logs> leer() {
-            string fecha = System.DateTime.Now.ToString("yyyy-MM-dd");
-            List<logs> logErrors= new List<logs>();
+        public List<logs> leer()
+        {
+            List<logs> logErrors = new List<logs>();
             logs log;
-            string path = Directory.GetCurrentDirectory() + "\\" + "logs" + "\\" +  "logs.txt";
+            string path = Directory.GetCurrentDirectory() + "\\" + "logs" + "\\" + "logs.txt";
             // Read the file and display it line by line.  
             System.IO.StreamReader file = new System.IO.StreamReader(path);
             string s;
             using (StreamReader sr = File.OpenText(path))
             {
-                int i= 0;
+                int i = 0;
                 while ((s = sr.ReadLine()) != null)
                 {
                     string[] parts = s.Split('-');
-                        log = new logs(parts[0], parts[1], parts[2],int.Parse(parts[3]));
-                        logErrors.Add(log);
-                    
+                    log = new logs(parts[0], parts[1], parts[3], int.Parse(parts[2]));
+                    logErrors.Add(log);
 
-                    i++;
+
 
                 }
                 file.Close();
 
             }
             return logErrors;
-            
+
         }
 
     }
 
 }
+
 
 

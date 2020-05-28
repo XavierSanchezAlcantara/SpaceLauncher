@@ -163,7 +163,7 @@ namespace SpaceLauncher
             }
             catch
             {
-                logs.Save("Error en cargar labels!!",100);
+                logs.Save("Error en cargar labels!!",130);
             }
         }
 
@@ -300,7 +300,7 @@ namespace SpaceLauncher
             }
             catch (Exception ex)
             {
-                logs.Save("Error al intentar Jugar a wegi", 10);
+                logs.Save("Error al intentar Jugar!!", 120);
             }
         }
 
@@ -315,7 +315,7 @@ namespace SpaceLauncher
             }
             catch (Exception ex)
             {
-                logs.Save("Error al intentar Jugar a JuegoBeta", 10);
+                logs.Save("Error al intentar Jugar!!", 120);
             }
         }
 
@@ -330,7 +330,7 @@ namespace SpaceLauncher
             }
             catch (Exception ex)
             {
-                logs.Save("Error al intentar Jugar a joc_pde!!", 10);
+                logs.Save("Error al intentar Jugar!!", 120);
             }
         }
 
@@ -345,7 +345,7 @@ namespace SpaceLauncher
             }
             catch (Exception ex)
             {
-                logs.Save("Error al intentar Jugar a arquer!!", 10);
+                logs.Save("Error al intentar Jugar!!", 120);
             }
         }
 
@@ -363,7 +363,7 @@ namespace SpaceLauncher
             }
             catch
             {
-                logs.Save("Error al cargar datos a dataGridView", 100);
+                logs.Save("Error al cargar datos a dataGridView!", 160);
             }
         }
 
@@ -400,13 +400,10 @@ namespace SpaceLauncher
                 }
                 else
                 {
-                    logs.Save("Juego no encontrado!!", 404);
+                    logs.Save("Error Juego no encontrado!!", 170);
                 }
             }
-            else
-            {
 
-            }
         }
 
         //Entrar al form logs
@@ -450,7 +447,7 @@ namespace SpaceLauncher
                                     else
                                     {
                                         txtErrorUpdate.Text = "Error al modificar los datos. Intentelo mas tarde!!";
-                                        logs.Save("Error al modificar Datos. Imposible conectar con la BBDD!!", 10);
+                                        logs.Save("Error al modificar Datos. Imposible conectar con la BBDD!!", 140);
                                     }
                                 }
                                 else
@@ -480,7 +477,7 @@ namespace SpaceLauncher
                         }
                         else
                         {
-                            txtErrorUpdate.Text = "Contraseña nueva demasiado corta!";
+                            txtErrorUpdate.Text = "Contraseña introducida no valida.!";
                         }
    
                 }
@@ -491,7 +488,7 @@ namespace SpaceLauncher
             }
             catch
             {
-                logs.Save("Error al modificar datos del usuario!!", 400);
+                logs.Save("Error al modificar usuario!", 100);
             }
 
         }
@@ -501,10 +498,12 @@ namespace SpaceLauncher
 
 
         //clase jugar
+        
         public void jugar(string game)
         {
             try
             {
+                
                 //Creem un string on indiqui el directori actual on esta colocat el executable..
                 string path = Directory.GetCurrentDirectory();
                 int idproc = 0;
@@ -589,9 +588,9 @@ namespace SpaceLauncher
 
 
             }
-            catch (Exception ex)
+            catch
             {
-                logs.Save("Error en la clase jugar.",10);
+                logs.Save("Error en la clase jugar!",150);
             }
 
         }

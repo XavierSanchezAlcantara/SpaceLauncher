@@ -1,0 +1,114 @@
+C:\Users\tecnico4\Desktop\credito xavi\launcher\SpaceLauncher\SpaceLauncher\bin\Debug\SpaceLauncher.exe.config
+C:\Users\tecnico4\Desktop\credito xavi\launcher\SpaceLauncher\SpaceLauncher\bin\Debug\SpaceLauncher.exe
+C:\Users\tecnico4\Desktop\credito xavi\launcher\SpaceLauncher\SpaceLauncher\bin\Debug\SpaceLauncher.pdb
+C:\Users\tecnico4\Desktop\credito xavi\launcher\SpaceLauncher\SpaceLauncher\obj\Debug\SpaceLauncher.csprojAssemblyReference.cache
+C:\Users\tecnico4\Desktop\credito xavi\launcher\SpaceLauncher\SpaceLauncher\obj\Debug\SpaceLauncher.Properties.Resources.resources
+C:\Users\tecnico4\Desktop\credito xavi\launcher\SpaceLauncher\SpaceLauncher\obj\Debug\SpaceLauncher.csproj.GenerateResource.cache
+C:\Users\tecnico4\Desktop\credito xavi\launcher\SpaceLauncher\SpaceLauncher\obj\Debug\SpaceLauncher.exe
+C:\Users\tecnico4\Desktop\credito xavi\launcher\SpaceLauncher\SpaceLauncher\obj\Debug\SpaceLauncher.pdb
+C:\Users\tecnico4\Desktop\credito xavi\launcher\SpaceLauncher\SpaceLauncher\bin\Debug\Microsoft.VisualBasic.PowerPacks.dll
+C:\Users\tecnico4\Desktop\credito xavi\launcher\SpaceLauncher\SpaceLauncher\bin\Debug\Microsoft.VisualBasic.PowerPacks.xml
+C:\Users\tecnico4\Desktop\credito xavi\launcher\SpaceLauncher\SpaceLauncher\obj\Debug\SpaceLauncher.csproj.CopyComplete
+C:\Users\tecnico4\Desktop\credito xavi\launcher\SpaceLauncher\SpaceLauncher\obj\Debug\SpaceLauncher.FormPrincipal.resources
+C:\Users\tecnico4\Desktop\credito xavi\launcher\SpaceLauncher\SpaceLauncher\obj\Debug\SpaceLauncher.FormLogin.resources
+C:\Users\tecnico4\Desktop\Visual Studio\credito xavi\launcher\SpaceLauncher\SpaceLauncher\bin\Debug\SpaceLauncher.exe.config
+C:\Users\tecnico4\Desktop\Visual Studio\credito xavi\launcher\SpaceLauncher\SpaceLauncher\bin\Debug\SpaceLauncher.exe
+C:\Users\tecnico4\Desktop\Visual Studio\credito xavi\launcher\SpaceLauncher\SpaceLauncher\bin\Debug\SpaceLauncher.pdb
+C:\Users\tecnico4\Desktop\Visual Studio\credito xavi\launcher\SpaceLauncher\SpaceLauncher\bin\Debug\Microsoft.VisualBasic.PowerPacks.dll
+C:\Users\tecnico4\Desktop\Visual Studio\credito xavi\launcher\SpaceLauncher\SpaceLauncher\bin\Debug\Microsoft.VisualBasic.PowerPacks.xml
+C:\Users\tecnico4\Desktop\Visual Studio\credito xavi\launcher\SpaceLauncher\SpaceLauncher\obj\Debug\SpaceLauncher.csprojAssemblyReference.cache
+C:\Users\tecnico4\Desktop\Visual Studio\credito xavi\launcher\SpaceLauncher\SpaceLauncher\obj\Debug\SpaceLauncher.FormPrincipal.resources
+C:\Users\tecnico4\Desktop\Visual Studio\credito xavi\launcher\SpaceLauncher\SpaceLauncher\obj\Debug\SpaceLauncher.FormLogin.resources
+C:\Users\tecnico4\Desktop\Visual Studio\credito xavi\launcher\SpaceLauncher\SpaceLauncher\obj\Debug\SpaceLauncher.Properties.Resources.resources
+C:\Users\tecnico4\Desktop\Visual Studio\credito xavi\launcher\SpaceLauncher\SpaceLauncher\obj\Debug\SpaceLauncher.csproj.GenerateResource.cache
+C:\Users\tecnico4\Desktop\Visual Studio\credito xavi\launcher\SpaceLauncher\SpaceLauncher\obj\Debug\SpaceLauncher.csproj.CopyComplete
+C:\Users\tecnico4\Desktop\Visual Studio\credito xavi\launcher\SpaceLauncher\SpaceLauncher\obj\Debug\SpaceLauncher.exe
+C:\Users\tecnico4\Desktop\Visual Studio\credito xavi\launcher\SpaceLauncher\SpaceLauncher\obj\Debug\SpaceLauncher.pdb
+C:\Users\tecnico4\Desktop\Visual Studio\credito xavi\launcher\SpaceLauncher\SpaceLauncher\bin\Debug\aa\SpaceLauncher.resources.dll
+C:\Users\tecnico4\Desktop\Visual Studio\credito xavi\launcher\SpaceLauncher\SpaceLauncher\obj\Debug\SpaceLauncher.FormPrincipal.aa.resources
+C:\Users\tecnico4\Desktop\Visual Studio\credito xavi\launcher\SpaceLauncher\SpaceLauncher\obj\Debug\aa\SpaceLauncher.resources.dll
+C:\Users\tecnico4\Desktop\Visual Studio\credito xavi\launcher\SpaceLauncher\SpaceLauncher\bin\Debug\Infragistics4.Shared.v15.1.dll
+C:\Users\tecnico4\Desktop\Visual Studio\credito xavi\launcher\SpaceLauncher\SpaceLauncher\bin\Debug\Infragistics4.Win.Misc.v15.1.dll
+C:\Users\tecnico4\Desktop\Visual Studio\credito xavi\launcher\SpaceLauncher\SpaceLauncher\bin\Debug\Infragistics4.Win.v15.1.dll
+C:\Users\tecnico4\Desktop\Visual Studio\credito xavi\launcher\SpaceLauncher\SpaceLauncher\bin\Debug\Infragistics4.Shared.v15.1.xml
+C:\Users\tecnico4\Desktop\Visual Studio\credito xavi\launcher\SpaceLauncher\SpaceLauncher\bin\Debug\Infragistics4.Win.Misc.v15.1.xml
+C:\Users\tecnico4\Desktop\Visual Studio\credito xavi\launcher\SpaceLauncher\SpaceLauncher\bin\Debug\Infragistics4.Win.v15.1.xml
+C:\Users\tecnico4\Desktop\Visual Studio\credito xavi\launcher\SpaceLauncher\SpaceLauncher\obj\Debug\SpaceLauncher.exe.licenses
+C:\Users\tecnico4\Desktop\Visual Studio\credito xavi\launcher\SpaceLauncher\SpaceLauncher\bin\Debug\Bunifu_UI_v1.52.dll
+C:\Users\tecnico4\Desktop\Visual Studio\credito xavi\launcher\SpaceLauncher\SpaceLauncher\bin\Debug\Infragistics4.Win.DataVisualization.Shared.v15.1.dll
+C:\Users\tecnico4\Desktop\Visual Studio\credito xavi\launcher\SpaceLauncher\SpaceLauncher\bin\Debug\Infragistics4.Win.DataVisualization.UltraDataChart.v15.1.dll
+C:\Users\tecnico4\Desktop\Visual Studio\credito xavi\launcher\SpaceLauncher\SpaceLauncher\bin\Debug\Infragistics4.Win.Portable.Core.v15.1.dll
+C:\Users\tecnico4\Desktop\Visual Studio\credito xavi\launcher\SpaceLauncher\SpaceLauncher\bin\Debug\Infragistics4.Win.DataVisualization.Shared.v15.1.xml
+C:\Users\tecnico4\Desktop\Visual Studio\credito xavi\launcher\SpaceLauncher\SpaceLauncher\bin\Debug\Infragistics4.Win.DataVisualization.UltraDataChart.v15.1.xml
+C:\Users\tecnico4\Desktop\Visual Studio\credito xavi\launcher\SpaceLauncher\SpaceLauncher\bin\Debug\Infragistics4.Win.Portable.Core.v15.1.xml
+C:\Users\tecnico4\Desktop\Visual Studio\credito xavi\launcher\SpaceLauncher\SpaceLauncher\bin\Debug\Infragistics4.Win.UltraWinTabControl.v15.1.dll
+C:\Users\tecnico4\Desktop\Visual Studio\credito xavi\launcher\SpaceLauncher\SpaceLauncher\bin\Debug\Infragistics4.Win.UltraWinTabControl.v15.1.xml
+C:\Users\tecnico4\Desktop\Visual Studio\credito xavi\launcher\SpaceLauncher\SpaceLauncher\obj\Debug\SpaceLauncher.Form1.resources
+C:\Users\tecnico4\Desktop\Visual Studio\credito xavi\launcher\SpaceLauncher\SpaceLauncher\bin\Debug\BouncyCastle.Crypto.dll
+C:\Users\tecnico4\Desktop\Visual Studio\credito xavi\launcher\SpaceLauncher\SpaceLauncher\bin\Debug\Google.Protobuf.dll
+C:\Users\tecnico4\Desktop\Visual Studio\credito xavi\launcher\SpaceLauncher\SpaceLauncher\bin\Debug\MySql.Data.dll
+C:\Users\tecnico4\Desktop\Visual Studio\credito xavi\launcher\SpaceLauncher\SpaceLauncher\bin\Debug\Renci.SshNet.dll
+C:\Users\tecnico4\Desktop\Visual Studio\credito xavi\launcher\SpaceLauncher\SpaceLauncher\bin\Debug\Ubiety.Dns.Core.dll
+C:\Users\tecnico4\Desktop\Visual Studio\credito xavi\launcher\SpaceLauncher\SpaceLauncher\bin\Debug\Google.Protobuf.xml
+C:\Users\tecnico4\Desktop\Visual Studio\credito xavi\launcher\SpaceLauncher\SpaceLauncher\bin\Debug\MySql.Data.xml
+C:\Users\tecnico4\Desktop\Visual Studio\credito xavi\launcher\SpaceLauncher\SpaceLauncher\bin\Debug\Renci.SshNet.xml
+C:\Users\tecnico4\Desktop\Visual Studio\credito xavi\launcher\SpaceLauncher\SpaceLauncher\bin\Debug\Magnum.dll
+C:\Users\tecnico4\Desktop\Visual Studio\credito xavi\launcher\SpaceLauncher\SpaceLauncher\bin\Debug\Microsoft.IdentityModel.Logging.dll
+C:\Users\tecnico4\Desktop\Visual Studio\credito xavi\launcher\SpaceLauncher\SpaceLauncher\bin\Debug\Microsoft.IdentityModel.Tokens.dll
+C:\Users\tecnico4\Desktop\Visual Studio\credito xavi\launcher\SpaceLauncher\SpaceLauncher\bin\Debug\Newtonsoft.Json.dll
+C:\Users\tecnico4\Desktop\Visual Studio\credito xavi\launcher\SpaceLauncher\SpaceLauncher\bin\Debug\System.IdentityModel.Tokens.Jwt.dll
+C:\Users\tecnico4\Desktop\Visual Studio\credito xavi\launcher\SpaceLauncher\SpaceLauncher\bin\Debug\Twilio.dll
+C:\Users\tecnico4\Desktop\Visual Studio\credito xavi\launcher\SpaceLauncher\SpaceLauncher\bin\Debug\Magnum.xml
+C:\Users\tecnico4\Desktop\Visual Studio\credito xavi\launcher\SpaceLauncher\SpaceLauncher\bin\Debug\Microsoft.IdentityModel.Tokens.xml
+C:\Users\tecnico4\Desktop\Visual Studio\credito xavi\launcher\SpaceLauncher\SpaceLauncher\bin\Debug\Newtonsoft.Json.xml
+C:\Users\tecnico4\Desktop\Visual Studio\credito xavi\launcher\SpaceLauncher\SpaceLauncher\bin\Debug\System.IdentityModel.Tokens.Jwt.xml
+C:\Users\tecnico4\Desktop\Visual Studio\credito xavi\launcher\SpaceLauncher\SpaceLauncher\bin\Debug\Twilio.xml
+C:\Users\xavi\Desktop\SpaceLauncher\SpaceLauncher\bin\Debug\SpaceLauncher.exe.config
+C:\Users\xavi\Desktop\SpaceLauncher\SpaceLauncher\bin\Debug\SpaceLauncher.exe
+C:\Users\xavi\Desktop\SpaceLauncher\SpaceLauncher\bin\Debug\SpaceLauncher.pdb
+C:\Users\xavi\Desktop\SpaceLauncher\SpaceLauncher\bin\Debug\aa\SpaceLauncher.resources.dll
+C:\Users\xavi\Desktop\SpaceLauncher\SpaceLauncher\bin\Debug\BouncyCastle.Crypto.dll
+C:\Users\xavi\Desktop\SpaceLauncher\SpaceLauncher\bin\Debug\Google.Protobuf.dll
+C:\Users\xavi\Desktop\SpaceLauncher\SpaceLauncher\bin\Debug\Magnum.dll
+C:\Users\xavi\Desktop\SpaceLauncher\SpaceLauncher\bin\Debug\Microsoft.IdentityModel.Logging.dll
+C:\Users\xavi\Desktop\SpaceLauncher\SpaceLauncher\bin\Debug\Microsoft.IdentityModel.Tokens.dll
+C:\Users\xavi\Desktop\SpaceLauncher\SpaceLauncher\bin\Debug\Microsoft.VisualBasic.PowerPacks.dll
+C:\Users\xavi\Desktop\SpaceLauncher\SpaceLauncher\bin\Debug\Newtonsoft.Json.dll
+C:\Users\xavi\Desktop\SpaceLauncher\SpaceLauncher\bin\Debug\Renci.SshNet.dll
+C:\Users\xavi\Desktop\SpaceLauncher\SpaceLauncher\bin\Debug\System.IdentityModel.Tokens.Jwt.dll
+C:\Users\xavi\Desktop\SpaceLauncher\SpaceLauncher\bin\Debug\Twilio.dll
+C:\Users\xavi\Desktop\SpaceLauncher\SpaceLauncher\bin\Debug\Ubiety.Dns.Core.dll
+C:\Users\xavi\Desktop\SpaceLauncher\SpaceLauncher\bin\Debug\Google.Protobuf.xml
+C:\Users\xavi\Desktop\SpaceLauncher\SpaceLauncher\bin\Debug\Magnum.xml
+C:\Users\xavi\Desktop\SpaceLauncher\SpaceLauncher\bin\Debug\Microsoft.IdentityModel.Tokens.xml
+C:\Users\xavi\Desktop\SpaceLauncher\SpaceLauncher\bin\Debug\Microsoft.VisualBasic.PowerPacks.xml
+C:\Users\xavi\Desktop\SpaceLauncher\SpaceLauncher\bin\Debug\MySql.Data.xml
+C:\Users\xavi\Desktop\SpaceLauncher\SpaceLauncher\bin\Debug\Newtonsoft.Json.xml
+C:\Users\xavi\Desktop\SpaceLauncher\SpaceLauncher\bin\Debug\Renci.SshNet.xml
+C:\Users\xavi\Desktop\SpaceLauncher\SpaceLauncher\bin\Debug\System.IdentityModel.Tokens.Jwt.xml
+C:\Users\xavi\Desktop\SpaceLauncher\SpaceLauncher\bin\Debug\Twilio.xml
+C:\Users\xavi\Desktop\SpaceLauncher\SpaceLauncher\obj\Debug\SpaceLauncher.FormPrincipal.resources
+C:\Users\xavi\Desktop\SpaceLauncher\SpaceLauncher\obj\Debug\SpaceLauncher.FormLogin.resources
+C:\Users\xavi\Desktop\SpaceLauncher\SpaceLauncher\obj\Debug\SpaceLauncher.Properties.Resources.resources
+C:\Users\xavi\Desktop\SpaceLauncher\SpaceLauncher\obj\Debug\SpaceLauncher.FormPrincipal.aa.resources
+C:\Users\xavi\Desktop\SpaceLauncher\SpaceLauncher\obj\Debug\SpaceLauncher.csproj.GenerateResource.cache
+C:\Users\xavi\Desktop\SpaceLauncher\SpaceLauncher\obj\Debug\aa\SpaceLauncher.resources.dll
+C:\Users\xavi\Desktop\SpaceLauncher\SpaceLauncher\obj\Debug\SpaceLauncher.csproj.CopyComplete
+C:\Users\xavi\Desktop\SpaceLauncher\SpaceLauncher\obj\Debug\SpaceLauncher.exe
+C:\Users\xavi\Desktop\SpaceLauncher\SpaceLauncher\obj\Debug\SpaceLauncher.pdb
+C:\Users\xavi\Desktop\SpaceLauncher\SpaceLauncher\bin\Debug\MySql.Data.dll
+C:\Users\xavi\Desktop\SpaceLauncher\SpaceLauncher\bin\Debug\CryptSharp.SCryptSubset.dll
+C:\Users\xavi\Desktop\SpaceLauncher\SpaceLauncher\bin\Debug\CryptSharp.SCryptSubset.pdb
+C:\Users\xavi\Desktop\SpaceLauncher\SpaceLauncher\bin\Debug\CryptSharp.SCryptSubset.xml
+C:\Users\xavi\Desktop\SpaceLauncher\SpaceLauncher\bin\Debug\CryptSharp.dll
+C:\Users\xavi\Desktop\SpaceLauncher\SpaceLauncher\bin\Debug\CryptSharp.pdb
+C:\Users\xavi\Desktop\SpaceLauncher\SpaceLauncher\bin\Debug\CryptSharp.xml
+C:\Users\xavi\Desktop\SpaceLauncher\SpaceLauncher\obj\Debug\SpaceLauncher.csproj.CoreCompileInputs.cache
+C:\Users\xavi\Desktop\SpaceLauncher\SpaceLauncher\bin\Debug\SpaceLauncher.exe.manifest
+C:\Users\xavi\Desktop\SpaceLauncher\SpaceLauncher\bin\Debug\SpaceLauncher.application
+C:\Users\xavi\Desktop\SpaceLauncher\SpaceLauncher\obj\Debug\SpaceLauncher.TrustInfo.xml
+C:\Users\xavi\Desktop\SpaceLauncher\SpaceLauncher\obj\Debug\SpaceLauncher.exe.manifest
+C:\Users\xavi\Desktop\SpaceLauncher\SpaceLauncher\obj\Debug\SpaceLauncher.application
+C:\Users\xavi\Desktop\SpaceLauncher\SpaceLauncher\obj\Debug\SpaceLauncher.FormRegister.resources
+C:\Users\xavi\Desktop\SpaceLauncher\SpaceLauncher\obj\Debug\SpaceLauncher.vista.formLogs.resources
+C:\Users\xavi\Desktop\SpaceLauncher\SpaceLauncher\obj\Debug\SpaceLauncher.csprojAssemblyReference.cache
