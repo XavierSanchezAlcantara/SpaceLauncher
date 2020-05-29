@@ -412,6 +412,7 @@
             this.Controls.Add(this.fechaError);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.buttonBuscarLogs);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "formLogs";
             this.Text = "Logs";
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();

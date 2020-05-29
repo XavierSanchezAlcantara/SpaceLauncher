@@ -163,7 +163,7 @@
             this.btnLogin.Name = "btnLogin";
             this.btnLogin.Size = new System.Drawing.Size(408, 42);
             this.btnLogin.TabIndex = 4;
-            this.btnLogin.Text = "ACCEDER";
+            this.btnLogin.Text = "REGISTRARSE";
             this.btnLogin.UseVisualStyleBackColor = false;
             this.btnLogin.Click += new System.EventHandler(this.btnLogin_Click);
             // 
