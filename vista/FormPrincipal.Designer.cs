@@ -30,11 +30,12 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormPrincipal));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel1 = new System.Windows.Forms.Panel();
             this.bunifuGradientPanel1 = new Bunifu.Framework.UI.BunifuGradientPanel();
+            this.bunifuSeparator7 = new Bunifu.Framework.UI.BunifuSeparator();
             this.buttonBuscador = new Bunifu.Framework.UI.BunifuFlatButton();
             this.bunifuFlatButton2 = new Bunifu.Framework.UI.BunifuFlatButton();
             this.buttonNews = new Bunifu.Framework.UI.BunifuFlatButton();
@@ -107,6 +108,10 @@
             this.bunifuCustomTextbox3 = new WindowsFormsControlLibrary1.BunifuCustomTextbox();
             this.news = new System.Windows.Forms.TabPage();
             this.panel4 = new System.Windows.Forms.Panel();
+            this.sexe = new System.Windows.Forms.ComboBox();
+            this.label12 = new System.Windows.Forms.Label();
+            this.fechaNacimiento = new System.Windows.Forms.Label();
+            this.dateNeixament = new System.Windows.Forms.DateTimePicker();
             this.button2 = new System.Windows.Forms.Button();
             this.txtErrorUpdate = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
@@ -131,10 +136,6 @@
             this.lblUser = new System.Windows.Forms.Label();
             this.bindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.sexe = new System.Windows.Forms.ComboBox();
-            this.label12 = new System.Windows.Forms.Label();
-            this.fechaNacimiento = new System.Windows.Forms.Label();
-            this.dateNeixament = new System.Windows.Forms.DateTimePicker();
             this.panel1.SuspendLayout();
             this.bunifuGradientPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -183,6 +184,7 @@
             // bunifuGradientPanel1
             // 
             resources.ApplyResources(this.bunifuGradientPanel1, "bunifuGradientPanel1");
+            this.bunifuGradientPanel1.Controls.Add(this.bunifuSeparator7);
             this.bunifuGradientPanel1.Controls.Add(this.buttonBuscador);
             this.bunifuGradientPanel1.Controls.Add(this.bunifuFlatButton2);
             this.bunifuGradientPanel1.Controls.Add(this.buttonNews);
@@ -200,6 +202,17 @@
             this.bunifuGradientPanel1.GradientTopRight = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(15)))), ((int)(((byte)(15)))));
             this.bunifuGradientPanel1.Name = "bunifuGradientPanel1";
             this.bunifuGradientPanel1.Quality = 10;
+            // 
+            // bunifuSeparator7
+            // 
+            this.bunifuSeparator7.BackColor = System.Drawing.Color.Transparent;
+            this.bunifuSeparator7.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(15)))), ((int)(((byte)(15)))));
+            this.bunifuSeparator7.LineColor = System.Drawing.Color.FromArgb(((int)(((byte)(105)))), ((int)(((byte)(105)))), ((int)(((byte)(105)))));
+            this.bunifuSeparator7.LineThickness = 2;
+            resources.ApplyResources(this.bunifuSeparator7, "bunifuSeparator7");
+            this.bunifuSeparator7.Name = "bunifuSeparator7";
+            this.bunifuSeparator7.Transparency = 255;
+            this.bunifuSeparator7.Vertical = false;
             // 
             // buttonBuscador
             // 
@@ -688,40 +701,40 @@
             this.buscadortabla.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.buscadortabla.ClipboardCopyMode = System.Windows.Forms.DataGridViewClipboardCopyMode.Disable;
             this.buscadortabla.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle10.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(15)))), ((int)(((byte)(15)))));
-            dataGridViewCellStyle10.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle10.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            dataGridViewCellStyle10.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(15)))), ((int)(((byte)(15)))));
-            dataGridViewCellStyle10.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle10.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.buscadortabla.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle10;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(15)))), ((int)(((byte)(15)))));
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(15)))), ((int)(((byte)(15)))));
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.buscadortabla.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
             this.buscadortabla.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.buscadortabla.ColumnHeadersVisible = false;
             this.buscadortabla.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.NombreJuego,
             this.IDJuego});
-            dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle11.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(15)))), ((int)(((byte)(15)))));
-            dataGridViewCellStyle11.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle11.ForeColor = System.Drawing.Color.WhiteSmoke;
-            dataGridViewCellStyle11.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle11.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle11.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.buscadortabla.DefaultCellStyle = dataGridViewCellStyle11;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(15)))), ((int)(((byte)(15)))));
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle5.ForeColor = System.Drawing.Color.WhiteSmoke;
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.buscadortabla.DefaultCellStyle = dataGridViewCellStyle5;
             this.buscadortabla.EnableHeadersVisualStyles = false;
             this.buscadortabla.MultiSelect = false;
             this.buscadortabla.Name = "buscadortabla";
             this.buscadortabla.ReadOnly = true;
             this.buscadortabla.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Sunken;
-            dataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle12.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(15)))), ((int)(((byte)(15)))));
-            dataGridViewCellStyle12.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle12.ForeColor = System.Drawing.SystemColors.Menu;
-            dataGridViewCellStyle12.SelectionBackColor = System.Drawing.Color.Red;
-            dataGridViewCellStyle12.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle12.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.buscadortabla.RowHeadersDefaultCellStyle = dataGridViewCellStyle12;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(15)))), ((int)(((byte)(15)))));
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.Menu;
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.Red;
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.buscadortabla.RowHeadersDefaultCellStyle = dataGridViewCellStyle6;
             this.buscadortabla.RowHeadersVisible = false;
             this.buscadortabla.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             this.buscadortabla.RowTemplate.DefaultCellStyle.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
@@ -1158,6 +1171,40 @@
             resources.ApplyResources(this.panel4, "panel4");
             this.panel4.Name = "panel4";
             // 
+            // sexe
+            // 
+            this.sexe.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.sexe.FormattingEnabled = true;
+            this.sexe.Items.AddRange(new object[] {
+            resources.GetString("sexe.Items"),
+            resources.GetString("sexe.Items1")});
+            resources.ApplyResources(this.sexe, "sexe");
+            this.sexe.Name = "sexe";
+            this.sexe.Sorted = true;
+            // 
+            // label12
+            // 
+            resources.ApplyResources(this.label12, "label12");
+            this.label12.ForeColor = System.Drawing.Color.DimGray;
+            this.label12.Name = "label12";
+            // 
+            // fechaNacimiento
+            // 
+            resources.ApplyResources(this.fechaNacimiento, "fechaNacimiento");
+            this.fechaNacimiento.ForeColor = System.Drawing.Color.DimGray;
+            this.fechaNacimiento.Name = "fechaNacimiento";
+            // 
+            // dateNeixament
+            // 
+            this.dateNeixament.Cursor = System.Windows.Forms.Cursors.Default;
+            this.dateNeixament.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            resources.ApplyResources(this.dateNeixament, "dateNeixament");
+            this.dateNeixament.MaxDate = new System.DateTime(2020, 5, 26, 0, 0, 0, 0);
+            this.dateNeixament.MinDate = new System.DateTime(1900, 1, 1, 0, 0, 0, 0);
+            this.dateNeixament.Name = "dateNeixament";
+            this.dateNeixament.TabStop = false;
+            this.dateNeixament.Value = new System.DateTime(2020, 5, 26, 0, 0, 0, 0);
+            // 
             // button2
             // 
             resources.ApplyResources(this.button2, "button2");
@@ -1386,40 +1433,6 @@
             this.contextMenuStrip1.Name = "contextMenuStrip1";
             resources.ApplyResources(this.contextMenuStrip1, "contextMenuStrip1");
             // 
-            // sexe
-            // 
-            this.sexe.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.sexe.FormattingEnabled = true;
-            this.sexe.Items.AddRange(new object[] {
-            resources.GetString("sexe.Items"),
-            resources.GetString("sexe.Items1")});
-            resources.ApplyResources(this.sexe, "sexe");
-            this.sexe.Name = "sexe";
-            this.sexe.Sorted = true;
-            // 
-            // label12
-            // 
-            resources.ApplyResources(this.label12, "label12");
-            this.label12.ForeColor = System.Drawing.Color.DimGray;
-            this.label12.Name = "label12";
-            // 
-            // fechaNacimiento
-            // 
-            resources.ApplyResources(this.fechaNacimiento, "fechaNacimiento");
-            this.fechaNacimiento.ForeColor = System.Drawing.Color.DimGray;
-            this.fechaNacimiento.Name = "fechaNacimiento";
-            // 
-            // dateNeixament
-            // 
-            this.dateNeixament.Cursor = System.Windows.Forms.Cursors.Default;
-            this.dateNeixament.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            resources.ApplyResources(this.dateNeixament, "dateNeixament");
-            this.dateNeixament.MaxDate = new System.DateTime(2020, 5, 26, 0, 0, 0, 0);
-            this.dateNeixament.MinDate = new System.DateTime(1900, 1, 1, 0, 0, 0, 0);
-            this.dateNeixament.Name = "dateNeixament";
-            this.dateNeixament.TabStop = false;
-            this.dateNeixament.Value = new System.DateTime(2020, 5, 26, 0, 0, 0, 0);
-            // 
             // FormPrincipal
             // 
             resources.ApplyResources(this, "$this");
@@ -1582,5 +1595,6 @@
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.Label fechaNacimiento;
         private System.Windows.Forms.DateTimePicker dateNeixament;
+        private Bunifu.Framework.UI.BunifuSeparator bunifuSeparator7;
     }
 }

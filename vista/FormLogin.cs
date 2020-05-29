@@ -1,18 +1,19 @@
-﻿using System;
-using System.Drawing;
-using System.Runtime.InteropServices;
-using System.Windows.Forms;
+﻿using CryptSharp;
+using Microsoft.VisualBasic.ApplicationServices;
+using MySql.Data.MySqlClient;
+using SpaceLauncher.model;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Drawing;
+using System.IO;
 using System.Linq;
-using System.Text;
-using MySql.Data.MySqlClient;
+using System.Runtime.InteropServices;
 using System.Security.Cryptography;
 using System.Text;
-using CryptSharp;
-using SpaceLauncher.model;
-using Microsoft.VisualBasic.ApplicationServices;
+using System.Text;
+using System.Windows.Forms;
 
 namespace SpaceLauncher
 {
@@ -28,9 +29,25 @@ namespace SpaceLauncher
 
         public FormLogin()
         {
+            try
+            {
+                string path = Directory.GetCurrentDirectory() + "\\" + "icon" + "\\" + "icon.ico";
+                Icon icon = new Icon(path);
+                this.Icon = icon;
+            }
+            catch
+            {
+                logs.Save("Error al importar icono aplicacion!", 180);
+            }
             InitializeComponent();
         }
         //Definim que a l'entrar a usuario es buidi
+
+        /// <summary>
+        /// Vaciar textBox cuando el usuario entre en ella!
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void textBox1_Enter(object sender, EventArgs e)
         {
             if (txtuser.Text == "USUARIO")
@@ -40,6 +57,12 @@ namespace SpaceLauncher
             }
         }
         //Definim que si sortim del Usuario i està buit, es torni a veure Usuario.
+
+        /// <summary>
+        /// Llenar textbox si el usuario sale sin hacer nada dentro!
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void textBox1_Leave(object sender, EventArgs e)
         {
             if (txtuser.Text == "")
@@ -51,6 +74,11 @@ namespace SpaceLauncher
 
         //Definim que a l'entrar a contrasenya es buidi, també definim que es vegi en forma de password
 
+        /// <summary>
+        /// Vaciar textBox cuando el usuario entre en ella!
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void txtpass_Enter(object sender,
             EventArgs e)
         {
@@ -63,7 +91,11 @@ namespace SpaceLauncher
         }
 
         //Definim que si sortim del Contraseña i està buit, es torni a veure Contraseña.
-
+        /// <summary>
+        /// Llenar textbox si el usuario sale sin hacer nada dentro!
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void txtpass_Leave(object sender, EventArgs e)
         {
             if (txtpass.Text == "")
@@ -75,18 +107,35 @@ namespace SpaceLauncher
             }
         }
         //Boto Clicar.
+
+        /// <summary>
+        /// Boton cerrar Programa!
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btncerrar_Click(object sender, EventArgs e)
         {
             Application.Exit();
         }
         //Boto minimitzar.
+
+        /// <summary>
+        /// Boton minimizar Programa!
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnminimizar_Click(object sender, EventArgs e)
         {
             this.WindowState = FormWindowState.Minimized;
         }
 
         //Codi per poder moure la finestra com nosaltres volguem.
-
+        
+        /// <summary>
+        /// Accion para poder mover la ventana!
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void Form1_MouseDown(object sender, MouseEventArgs e)
         {
             ReleaseCapture();
@@ -94,7 +143,11 @@ namespace SpaceLauncher
         }
         //Codi per poder moure la finestra com nosaltres volguem.
 
-
+        /// <summary>
+        /// Accion para poder mover la ventana!
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void panel1_MouseDown(object sender, MouseEventArgs e)
         {
             ReleaseCapture();
@@ -102,6 +155,12 @@ namespace SpaceLauncher
         }
 
         //Accions al clicar el boto login.
+
+        /// <summary>
+        /// Accion al pulsar boton login.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnLogin_Click(object sender, EventArgs e)
         {
             try
@@ -122,13 +181,17 @@ namespace SpaceLauncher
             }
             catch (Exception ex)
             {
-                logs.Save("Error al consultar dades de login a la BBDD.",120);
+                logs.Save("Error al consultar dades de login a la BBDD.", 120);
             }
 
 
         }
 
-
+        /// <summary>
+        /// Accion al decir que no estas registrado!
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void linkpass_LinkClicked_1(object sender, LinkLabelLinkClickedEventArgs e)
         {
             FormRegister form = new FormRegister();
@@ -137,7 +200,7 @@ namespace SpaceLauncher
         }
     }
 
-    
+
 
 
 }

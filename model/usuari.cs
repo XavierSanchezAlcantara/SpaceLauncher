@@ -16,7 +16,16 @@ namespace SpaceLauncher.model
         String sexo;
 
         //constructor registre
-        public usuari(string usuario, string email, string clave, string fechaNacimiento, string sexo) 
+
+        /// <summary>
+        /// Constructor usuario!
+        /// </summary>
+        /// <param name="usuario"></param>
+        /// <param name="email"></param>
+        /// <param name="clave"></param>
+        /// <param name="fechaNacimiento"></param>
+        /// <param name="sexo"></param>
+        public usuari(string usuario, string email, string clave, string fechaNacimiento, string sexo)
         {
             this.fechaNacimiento = fechaNacimiento;
             this.sexo = sexo;
@@ -25,13 +34,11 @@ namespace SpaceLauncher.model
             this.Clave = clave;
         }
 
-        public usuari(string usuario, string email, string clave)
-        {
-            this.usuario = usuario;
-            this.email = email;
-            this.clave = clave;
-        }
-
+        /// <summary>
+        /// Constructor usuario!
+        /// </summary>
+        /// <param name="usuario"></param>
+        /// <param name="clave"></param>
         public usuari(string usuario, string clave)
         {
             this.usuario = usuario;
@@ -45,7 +52,13 @@ namespace SpaceLauncher.model
         public string Sexo { get => sexo; set => sexo = value; }
         public string FechaNacimiento { get => fechaNacimiento; set => fechaNacimiento = value; }
 
-        public Boolean contraseñaValida(String contraseña) {
+        /// <summary>
+        /// Comprovar si la contraseña cumple todos los requisitos!
+        /// </summary>
+        /// <param name="contraseña"></param>
+        /// <returns></returns>
+        public Boolean contraseñaValida(String contraseña)
+        {
 
             try
             {
@@ -53,39 +66,53 @@ namespace SpaceLauncher.model
                 {
                     bool containsUpperCase = contraseña.Any(char.IsUpper);
 
-                    if (containsUpperCase) {
-                        bool containsLowerCase = contraseña.Any(char.IsLower); 
-                        if (containsLowerCase){
+                    if (containsUpperCase)
+                    {
+                        bool containsLowerCase = contraseña.Any(char.IsLower);
+                        if (containsLowerCase)
+                        {
                             bool containsNumber = contraseña.Any(char.IsDigit);
-                            if(containsNumber){
+                            if (containsNumber)
+                            {
                                 return true;
                             }
-                            else {
+                            else
+                            {
                                 return false;
                             }
                         }
-                        else {
+                        else
+                        {
                             return false;
                         }
                     }
-                    else {
+                    else
+                    {
                         return false;
                     }
                 }
-                else {
+                else
+                {
                     return false;
                 }
-                
-            
+
+
             }
 
-            catch {
+            catch
+            {
                 return false;
             }
 
         }
         //comprovar si esta en format email.
-        public  bool ComprobarFormatoEmail(string seMailAComprobar)
+
+        /// <summary>
+        /// Funcion para comprovar si el formato es formato email.
+        /// </summary>
+        /// <param name="seMailAComprobar"></param>
+        /// <returns></returns>
+        public bool ComprobarFormatoEmail(string seMailAComprobar)
         {
             String sFormato;
             sFormato = "\\w+([-+.']\\w+)*@\\w+([-.]\\w+)*\\.\\w+([-.]\\w+)*";

@@ -1,12 +1,12 @@
-﻿using System;
+﻿using Microsoft.VisualBasic.Logging;
+using System;
 using System.Collections.Generic;
+using System.Diagnostics;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Web;
-using System.IO;
-using System.Diagnostics;
 using Twilio.Rest.Video.V1.Room.Participant;
-using Microsoft.VisualBasic.Logging;
 
 namespace SpaceLauncher.model
 {
@@ -22,6 +22,13 @@ namespace SpaceLauncher.model
         public int Code { get => code; set => code = value; }
         public string Fecha { get => fecha; set => fecha = value; }
 
+        /// <summary>
+        /// Constructor logs!
+        /// </summary>
+        /// <param name="fecha"></param>
+        /// <param name="hora"></param>
+        /// <param name="error"></param>
+        /// <param name="code"></param>
         public logs(string fecha, string hora, string error, int code)
         {
             this.fecha = fecha;
@@ -33,7 +40,11 @@ namespace SpaceLauncher.model
         {
 
         }
-
+        /// <summary>
+        /// Metodo para crear y editar el archivo logs!
+        /// </summary>
+        /// <param name="error"></param>
+        /// <param name="codeError"></param>
         public static void Save(string error, int codeError)
         {
             string hora = System.DateTime.Now.ToString("HH:mm:ss");
@@ -68,6 +79,10 @@ namespace SpaceLauncher.model
                 }
             }
         }
+        /// <summary>
+        /// Funcion para leer todos los logs!
+        /// </summary>
+        /// <returns></returns>
         public List<logs> leer()
         {
             List<logs> logErrors = new List<logs>();
@@ -85,6 +100,40 @@ namespace SpaceLauncher.model
                     log = new logs(parts[0], parts[1], parts[3], int.Parse(parts[2]));
                     logErrors.Add(log);
 
+
+
+                }
+                file.Close();
+
+            }
+            return logErrors;
+
+        }
+        /// <summary>
+        /// Funcion para guardar errores segun string
+        /// </summary>
+        /// <param name="logBuscador"></param>
+        /// <returns></returns>
+        public List<logs> leerConString(string logBuscador)
+        {
+            List<logs> logErrors = new List<logs>();
+            logs log;
+            string path = Directory.GetCurrentDirectory() + "\\" + "logs" + "\\" + "logs.txt";
+            // Read the file and display it line by line.  
+            System.IO.StreamReader file = new System.IO.StreamReader(path);
+            string s;
+            using (StreamReader sr = File.OpenText(path))
+            {
+                int i = 0;
+                while ((s = sr.ReadLine()) != null)
+                {
+                    string[] parts = s.Split('-');
+                    log = new logs(parts[0], parts[1], parts[3], int.Parse(parts[2]));
+
+                    if (parts[3].ToString().Contains(logBuscador))
+                    {
+                        logErrors.Add(log);
+                    }
 
 
                 }

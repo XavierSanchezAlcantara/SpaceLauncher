@@ -14,14 +14,14 @@
     <framework targetVersion="4.7.2" profile="Full" supportedRuntime="4.0.30319" />
   </compatibleFrameworks>
   <dependency>
-    <dependentAssembly dependencyType="install" codebase="SpaceLauncher.exe.manifest" size="20682">
+    <dependentAssembly dependencyType="install" codebase="SpaceLauncher.exe.manifest" size="21196">
       <assemblyIdentity name="SpaceLauncher.exe" version="1.0.0.0" publicKeyToken="0000000000000000" language="neutral" processorArchitecture="msil" type="win32" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>wDG8OMyUZIjq3/We1WQmPBbcR25rCSikqts2es4O1DE=</dsig:DigestValue>
+        <dsig:DigestValue>ySeRsc0BdlopqpiS1e9RO5YEAerp/DQBhsPvz6j+6Wk=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>

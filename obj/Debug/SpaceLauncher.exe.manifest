@@ -1,6 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <asmv1:assembly xsi:schemaLocation="urn:schemas-microsoft-com:asm.v1 assembly.adaptive.xsd" manifestVersion="1.0" xmlns:asmv1="urn:schemas-microsoft-com:asm.v1" xmlns="urn:schemas-microsoft-com:asm.v2" xmlns:asmv2="urn:schemas-microsoft-com:asm.v2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:co.v1="urn:schemas-microsoft-com:clickonce.v1" xmlns:asmv3="urn:schemas-microsoft-com:asm.v3" xmlns:dsig="http://www.w3.org/2000/09/xmldsig#" xmlns:co.v2="urn:schemas-microsoft-com:clickonce.v2">
   <asmv1:assemblyIdentity name="SpaceLauncher.exe" version="1.0.0.0" publicKeyToken="0000000000000000" language="neutral" processorArchitecture="msil" type="win32" />
+  <description asmv2:iconFile="space_launcher_con_fondo.ico" xmlns="urn:schemas-microsoft-com:asm.v1" />
   <application />
   <entryPoint>
     <assemblyIdentity name="SpaceLauncher" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
@@ -270,26 +271,26 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="SpaceLauncher.exe" size="5039576">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="SpaceLauncher.exe" size="5205464">
       <assemblyIdentity name="SpaceLauncher" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>Gwndd+Hb1wmpdORz8B0FR5JyCLyJrmI1OIiTI56bvkY=</dsig:DigestValue>
+        <dsig:DigestValue>ifsXpVNH+JX2MqED7U0L20t/11CJ3jO0CfP9a4Gy3MA=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="aa\SpaceLauncher.resources.dll" size="77824">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="aa\SpaceLauncher.resources.dll" size="78336">
       <assemblyIdentity name="SpaceLauncher.resources" version="1.0.0.0" language="aa" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>uZLQxkBjFwFbS93oKE/WauvXPVpEB2crc3yN2b7zYK4=</dsig:DigestValue>
+        <dsig:DigestValue>BbmZi2sxfyO31r1EVv71cvOHigznsKSppWi6SIFgvsY=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -329,6 +330,15 @@
       </hash>
     </dependentAssembly>
   </dependency>
+  <file name="space_launcher_con_fondo.ico" size="162686">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>wfnkGZ6wPWnV4iDO07zSmSFUMzQtNTZhXwkJcZiUZkU=</dsig:DigestValue>
+    </hash>
+  </file>
   <file name="SpaceLauncher.exe.config" size="544">
     <hash>
       <dsig:Transforms>

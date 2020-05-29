@@ -49,6 +49,7 @@
             this.fechaNacimiento = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.sexe = new System.Windows.Forms.ComboBox();
+            this.registrado = new System.Windows.Forms.LinkLabel();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btncerrar)).BeginInit();
@@ -158,7 +159,7 @@
             this.btnLogin.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.btnLogin.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnLogin.ForeColor = System.Drawing.Color.LightGray;
-            this.btnLogin.Location = new System.Drawing.Point(310, 323);
+            this.btnLogin.Location = new System.Drawing.Point(309, 312);
             this.btnLogin.Name = "btnLogin";
             this.btnLogin.Size = new System.Drawing.Size(408, 42);
             this.btnLogin.TabIndex = 4;
@@ -205,7 +206,7 @@
             this.loginError.Enabled = false;
             this.loginError.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.loginError.ForeColor = System.Drawing.Color.Red;
-            this.loginError.Location = new System.Drawing.Point(310, 284);
+            this.loginError.Location = new System.Drawing.Point(311, 274);
             this.loginError.Margin = new System.Windows.Forms.Padding(0);
             this.loginError.Name = "loginError";
             this.loginError.Size = new System.Drawing.Size(408, 25);
@@ -277,12 +278,25 @@
             this.sexe.Sorted = true;
             this.sexe.TabIndex = 13;
             // 
+            // registrado
+            // 
+            this.registrado.AutoSize = true;
+            this.registrado.LinkColor = System.Drawing.Color.Red;
+            this.registrado.Location = new System.Drawing.Point(459, 368);
+            this.registrado.Name = "registrado";
+            this.registrado.Size = new System.Drawing.Size(109, 13);
+            this.registrado.TabIndex = 14;
+            this.registrado.TabStop = true;
+            this.registrado.Text = "¿Ya estas registrado?";
+            this.registrado.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.registrado_LinkClicked);
+            // 
             // FormRegister
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(15)))), ((int)(((byte)(15)))));
             this.ClientSize = new System.Drawing.Size(800, 400);
+            this.Controls.Add(this.registrado);
             this.Controls.Add(this.sexe);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.fechaNacimiento);
@@ -333,6 +347,7 @@
         private System.Windows.Forms.Label fechaNacimiento;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.ComboBox sexe;
+        private System.Windows.Forms.LinkLabel registrado;
     }
 }
 

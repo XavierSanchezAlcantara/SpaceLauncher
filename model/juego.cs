@@ -10,7 +10,11 @@ namespace SpaceLauncher.model
     {
         int idJuego;
         string nombreJuego;
-
+        /// <summary>
+        /// Constructor juego!
+        /// </summary>
+        /// <param name="idJuego"></param>
+        /// <param name="nombreJuego"></param>
         public juego(int idJuego, string nombreJuego)
         {
             this.idJuego = idJuego;

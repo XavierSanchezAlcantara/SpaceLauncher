@@ -1,18 +1,18 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Data;
+﻿using CryptSharp;
+using Magnum.Extensions;
 using MySql.Data;
 using MySql.Data.MySqlClient;
-using CryptSharp;
+using MySqlX.XDevAPI.Common;
 using SpaceLauncher.model;
-using System.Windows.Forms.VisualStyles;
+using System;
+using System.Collections.Generic;
+using System.Data;
+using System.Linq;
 using System.Linq.Expressions;
 using System.Security.Cryptography;
-using Magnum.Extensions;
-using MySqlX.XDevAPI.Common;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Forms.VisualStyles;
 
 namespace SpaceLauncher
 {
@@ -23,13 +23,18 @@ namespace SpaceLauncher
         tiempoJugado tiempoJugados = new tiempoJugado();
         MySqlConnection conectar = new MySqlConnection("server=spacelauncher.sytes.net;database=prova_db;Uid=xavi;pwd=Admin1234");
 
+        /// <summary>
+        /// Registrar usuario!
+        /// </summary>
+        /// <param name="user"></param>
+        /// <returns></returns>
         public Boolean mysqlRegister(usuari user)
         {
             try
             {
                 conectar.Open();
                 string passEncriptado = Crypter.Phpass.Crypt(user.Clave);
-                MySqlCommand comandom = new MySqlCommand("INSERT INTO usuarios (usuario , email, clave,sexo,fechaNacimiento) VALUES (" + '"' + user.Usuario + '"' + ", " + '"' + 
+                MySqlCommand comandom = new MySqlCommand("INSERT INTO usuarios (usuario , email, clave,sexo,fechaNacimiento) VALUES (" + '"' + user.Usuario + '"' + ", " + '"' +
                     user.Email + '"' + ", " + '"' + passEncriptado + '"' + ", " + '"' + user.Sexo + '"' + ", " + '"' + user.FechaNacimiento + '"' + ")", conectar);
                 comandom.ExecuteNonQuery();
                 if (true)
@@ -50,6 +55,12 @@ namespace SpaceLauncher
                 return false;
             }
         }
+
+        /// <summary>
+        /// Consultar Email de usuario!
+        /// </summary>
+        /// <param name="usuario"></param>
+        /// <returns></returns>
         public String mysqlEmail(string usuario)
         {
             try
@@ -67,13 +78,18 @@ namespace SpaceLauncher
             {
                 conectar.Close();
 
-                logs.Save("Error al consultar el email en la BBDD!",30);
+                logs.Save("Error al consultar el email en la BBDD!", 30);
 
                 return "";
             }
 
 
         }
+        /// <summary>
+        /// Consultar sexo Usuario!
+        /// </summary>
+        /// <param name="usuario"></param>
+        /// <returns></returns>
         public String mysqlSexe(string usuario)
         {
             try
@@ -98,6 +114,12 @@ namespace SpaceLauncher
 
 
         }
+
+        /// <summary>
+        /// Consultar FechaNacimiento de un usuario!
+        /// </summary>
+        /// <param name="usuario"></param>
+        /// <returns></returns>
         public String mysqlFechaNacimiento(string usuario)
         {
             try
@@ -122,6 +144,12 @@ namespace SpaceLauncher
 
 
         }
+
+        /// <summary>
+        /// Comprovar si las credenciales del usuario son correctas!
+        /// </summary>
+        /// <param name="user"></param>
+        /// <returns></returns>
         public Boolean mysqlLogin(usuari user)
         {
             //Creem la conexio a la base de dades
@@ -156,10 +184,15 @@ namespace SpaceLauncher
             {
                 conectar.Close();
 
-                logs.Save("Error al consultar datos login en la BBDD!",10);
+                logs.Save("Error al consultar datos login en la BBDD!", 10);
                 return false;
             }
         }
+        /// <summary>
+        /// Insertar tiempo jugado a un juego!
+        /// </summary>
+        /// <param name="juego"></param>
+        /// <returns></returns>
         public Boolean mysqlJuego(tiempoJugado juego)
         {
             try
@@ -183,7 +216,8 @@ namespace SpaceLauncher
                     return false;
                 }
             }
-            catch {
+            catch
+            {
                 conectar.Close();
                 logs.Save("Error al insertar tiempoJugado!!", 70);
                 return false;
@@ -192,12 +226,18 @@ namespace SpaceLauncher
 
 
         // Consultar a la BBDD registres d'hores Jugades.
+
+        /// <summary>
+        /// Consultar timepoJugado!
+        /// </summary>
+        /// <param name="juego"></param>
+        /// <returns></returns>
         public int tiempoJugado(tiempoJugado juego)
         {
             int temps = 0;
             try
             {
-                
+
                 String[] tot;
                 conectar.Open();
                 MySqlCommand comandom = new MySqlCommand("Select tiempoJugado from tiempoJugado where idUsuario=" + '"' + juego.NombreUsuario + '"' + " and idJuego = " + '"' + juego.NombreJuego + '"', conectar);
@@ -238,7 +278,8 @@ namespace SpaceLauncher
                 conectar.Close();
                 return temps;
             }
-            catch {
+            catch
+            {
                 conectar.Close();
                 logs.Save("Error al consultar tiempoJugado!", 80);
                 return temps;
@@ -247,6 +288,11 @@ namespace SpaceLauncher
             }
 
         }
+        /// <summary>
+        /// Consultar tiempoJugadoTotal!
+        /// </summary>
+        /// <param name="usuario"></param>
+        /// <returns></returns>
         public int tiempoJugadototal(string usuario)
         {
             try
@@ -302,6 +348,11 @@ namespace SpaceLauncher
             }
 
         }
+        /// <summary>
+        /// Editar Usuario.
+        /// </summary>
+        /// <param name="user"></param>
+        /// <returns></returns>
         public Boolean mysqlUpdateUser(usuari user)
         {
             try
@@ -325,18 +376,22 @@ namespace SpaceLauncher
             {
                 conectar.Close();
 
-                logs.Save("Error al modificar usuario!",100);
+                logs.Save("Error al modificar usuario!", 100);
                 return false;
             }
         }
 
 
-
-
-
         //////////////////////////////////////////
         ///               Consultar juegos tabla
         //////////////////////////////////////////
+
+        /// <summary>
+        /// Consultar Juegos a partir de string!
+        /// </summary>
+        /// <param name="juego"></param>
+        /// <returns></returns>
+
         public List<juego> guardarEnTablaBuscar(string juego)
         {
             List<juego> juegosGuardar = new List<juego>();
@@ -344,7 +399,7 @@ namespace SpaceLauncher
             try
             {
                 conectar.Open();
-                MySqlCommand comandom = new MySqlCommand("Select * from juegos where nombreJuego like '%" + juego+"%'" , conectar);
+                MySqlCommand comandom = new MySqlCommand("Select * from juegos where nombreJuego like '%" + juego + "%'", conectar);
                 MySqlDataReader comando = comandom.ExecuteReader();
                 while (comando.Read())
                 {
@@ -361,7 +416,7 @@ namespace SpaceLauncher
             {
                 conectar.Close();
 
-                logs.Save("Error Al consultar juegos!!!",110);
+                logs.Save("Error Al consultar juegos!!!", 110);
             }
             conectar.Close();
 
@@ -369,8 +424,12 @@ namespace SpaceLauncher
 
         }
 
-
-        public List<juego> guardarEnTabla(string nombreTabla) 
+        /// <summary>
+        /// Guardar todos los juegos en la tabla!
+        /// </summary>
+        /// <param name="nombreTabla"></param>
+        /// <returns></returns>
+        public List<juego> guardarEnTabla(string nombreTabla)
         {
             List<juego> juegosGuardar = new List<juego>();
             juego juegos;
@@ -389,8 +448,9 @@ namespace SpaceLauncher
                 return juegosGuardar;
 
             }
-            catch {
-                logs.Save("Error Al consultar juegos!!!",110);
+            catch
+            {
+                logs.Save("Error Al consultar juegos!!!", 110);
                 conectar.Close();
 
             }
@@ -399,8 +459,8 @@ namespace SpaceLauncher
             return juegosGuardar;
 
         }
-        
-       
+
+
 
     }
 }

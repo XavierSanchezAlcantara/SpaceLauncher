@@ -12,7 +12,13 @@ namespace SpaceLauncher.model
         String nombreUsuario;
         String tiempo;
         DateTime fecha;
-
+        /// <summary>
+        /// Constructor tiempoJugado!
+        /// </summary>
+        /// <param name="nombreJuego"></param>
+        /// <param name="idUsuario"></param>
+        /// <param name="tiempo"></param>
+        /// <param name="fecha"></param>
         public tiempoJugado(String nombreJuego, string idUsuario, String tiempo, DateTime fecha)
         {
             this.nombreJuego = nombreJuego;
@@ -20,9 +26,18 @@ namespace SpaceLauncher.model
             this.tiempo = tiempo;
             this.fecha = DateTime.Now;
         }
+        /// <summary>
+        /// Constructor tiempoJugado
+        /// </summary>
         public tiempoJugado()
         {
         }
+
+        /// <summary>
+        /// Constructor tiempoJugado
+        /// </summary>
+        /// <param name="nombreJuego"></param>
+        /// <param name="idUsuario"></param>
         public tiempoJugado(String nombreJuego, string idUsuario)
         {
             this.nombreJuego = nombreJuego;
@@ -36,6 +51,14 @@ namespace SpaceLauncher.model
         public DateTime Fecha { get => fecha; set => fecha = value; }
 
         //Funcio per a convertir hores minuts segons a nomes segons.
+
+        /// <summary>
+        /// Metodo para calcular tiempo en segundos!
+        /// </summary>
+        /// <param name="h"></param>
+        /// <param name="m"></param>
+        /// <param name="s"></param>
+        /// <returns></returns>
         public String calcularTiempo2(String h, String m, String s)
         {
             int hh, mm, t;
@@ -51,6 +74,12 @@ namespace SpaceLauncher.model
         }
 
         //Creem una clase per poder saber quant temps he estat jugant.
+
+        /// <summary>
+        /// Metodo para calcular de segundos a horas, minutos y segundos!
+        /// </summary>
+        /// <param name="tsegundos"></param>
+        /// <returns></returns>
         public String CalcularTiempo(Int32 tsegundos)
         {
             Int32 horas = Math.Abs((tsegundos / 3600));

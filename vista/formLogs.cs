@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -14,10 +15,23 @@ namespace SpaceLauncher.vista
     public partial class formLogs : Form
     {
         logs loge = new logs();
+
+        /// <summary>
+        /// Carregar pantalla logs!
+        /// </summary>
         public formLogs()
         {
             InitializeComponent();
-            
+            try
+            {
+                string path = Directory.GetCurrentDirectory() + "\\" + "icon" + "\\" + "icon.ico";
+                Icon icon = new Icon(path);
+                this.Icon = icon;
+            }
+            catch
+            {
+                logs.Save("Error al importar icono aplicacion!", 180);
+            }
 
             try
             {
@@ -29,11 +43,15 @@ namespace SpaceLauncher.vista
             }
             catch
             {
-                logs.Save("Error al cargar logs!", 50);
+
             }
             fechaError.CustomFormat = "dd/MM/yyyy";
         }
-
+        /// <summary>
+        /// Accio per filtrar logs per text!
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void button1_Click(object sender, EventArgs e)
         {
             try
@@ -44,7 +62,8 @@ namespace SpaceLauncher.vista
                     Console.WriteLine(fechaError.Value.Date);
 
 
-                    if (fechaError.Value.ToString().Contains(log.Fecha)){
+                    if (fechaError.Value.ToString().Contains(log.Fecha))
+                    {
                         dataGridView1.Rows.Add(new object[] { log.Fecha, log.Hora, log.Code, log.Error });
 
                     }
@@ -55,7 +74,11 @@ namespace SpaceLauncher.vista
                 logs.Save("Error al cargar logs!", 50);
             }
         }
-
+        /// <summary>
+        /// Accion boton filtrar codigo error!
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void button1_Click_1(object sender, EventArgs e)
         {
             try
@@ -63,7 +86,7 @@ namespace SpaceLauncher.vista
                 dataGridView1.Rows.Clear();
                 foreach (logs log in loge.leer())
                 {
-                    bool checkError=false;
+                    bool checkError = false;
                     //comprovar si el numero del error esta checked.
                     switch (log.Code)
                     {
@@ -78,9 +101,6 @@ namespace SpaceLauncher.vista
                             break;
                         case 40:
                             checkError = check40.Checked;
-                            break;
-                        case 50:
-                            checkError = check50.Checked;
                             break;
                         case 60:
                             checkError = check60.Checked;
@@ -118,6 +138,9 @@ namespace SpaceLauncher.vista
                         case 170:
                             checkError = check170.Checked;
                             break;
+                        case 180:
+                            checkError = check180.Checked;
+                            break;
                     }
 
 
@@ -135,12 +158,39 @@ namespace SpaceLauncher.vista
             }
         }
 
+
+        /// <summary>
+        /// Cargar todos los logs!
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+
         private void button2_Click(object sender, EventArgs e)
         {
             try
             {
                 dataGridView1.Rows.Clear();
                 foreach (logs log in loge.leer())
+                {
+                    dataGridView1.Rows.Add(new object[] { log.Fecha, log.Hora, log.Code, log.Error });
+                }
+            }
+            catch
+            {
+                logs.Save("Error al cargar logs!", 50);
+            }
+        }
+        /// <summary>
+        /// Cargar logs a partir de una string!
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void buttonBuscar_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                dataGridView1.Rows.Clear();
+                foreach (logs log in loge.leerConString(ErrorBuscartxt.Text))
                 {
                     dataGridView1.Rows.Add(new object[] { log.Fecha, log.Hora, log.Code, log.Error });
                 }

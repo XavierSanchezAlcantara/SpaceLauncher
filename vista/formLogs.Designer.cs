@@ -30,6 +30,10 @@
         {
             this.buttonBuscarLogs = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.fecha = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.hora = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.codigoerror = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Descripcion = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.fechaError = new System.Windows.Forms.DateTimePicker();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
@@ -37,7 +41,6 @@
             this.check20 = new System.Windows.Forms.CheckBox();
             this.check30 = new System.Windows.Forms.CheckBox();
             this.check60 = new System.Windows.Forms.CheckBox();
-            this.check50 = new System.Windows.Forms.CheckBox();
             this.check40 = new System.Windows.Forms.CheckBox();
             this.check90 = new System.Windows.Forms.CheckBox();
             this.check80 = new System.Windows.Forms.CheckBox();
@@ -52,10 +55,10 @@
             this.check130 = new System.Windows.Forms.CheckBox();
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
-            this.fecha = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.hora = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.codigoerror = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Descripcion = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.check180 = new System.Windows.Forms.CheckBox();
+            this.ErrorBuscartxt = new System.Windows.Forms.TextBox();
+            this.ErrorBusca = new System.Windows.Forms.Label();
+            this.buttonBuscar = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -82,7 +85,7 @@
             this.hora,
             this.codigoerror,
             this.Descripcion});
-            this.dataGridView1.Location = new System.Drawing.Point(28, 12);
+            this.dataGridView1.Location = new System.Drawing.Point(28, 44);
             this.dataGridView1.MultiSelect = false;
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
@@ -95,9 +98,38 @@
             this.dataGridView1.ShowCellToolTips = false;
             this.dataGridView1.ShowEditingIcon = false;
             this.dataGridView1.ShowRowErrors = false;
-            this.dataGridView1.Size = new System.Drawing.Size(743, 272);
+            this.dataGridView1.Size = new System.Drawing.Size(743, 240);
             this.dataGridView1.TabIndex = 1;
             this.dataGridView1.TabStop = false;
+            // 
+            // fecha
+            // 
+            this.fecha.HeaderText = "fecha";
+            this.fecha.Name = "fecha";
+            this.fecha.ReadOnly = true;
+            this.fecha.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            // 
+            // hora
+            // 
+            this.hora.HeaderText = "hora";
+            this.hora.Name = "hora";
+            this.hora.ReadOnly = true;
+            // 
+            // codigoerror
+            // 
+            this.codigoerror.HeaderText = "Codigo error";
+            this.codigoerror.Name = "codigoerror";
+            this.codigoerror.ReadOnly = true;
+            // 
+            // Descripcion
+            // 
+            this.Descripcion.FillWeight = 450F;
+            this.Descripcion.HeaderText = "Descripcion";
+            this.Descripcion.Name = "Descripcion";
+            this.Descripcion.ReadOnly = true;
+            this.Descripcion.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.Descripcion.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.Descripcion.Width = 450;
             // 
             // fechaError
             // 
@@ -163,22 +195,12 @@
             // check60
             // 
             this.check60.AutoSize = true;
-            this.check60.Location = new System.Drawing.Point(370, 300);
+            this.check60.Location = new System.Drawing.Point(326, 299);
             this.check60.Name = "check60";
             this.check60.Size = new System.Drawing.Size(38, 17);
             this.check60.TabIndex = 60;
             this.check60.Text = "60";
             this.check60.UseVisualStyleBackColor = true;
-            // 
-            // check50
-            // 
-            this.check50.AutoSize = true;
-            this.check50.Location = new System.Drawing.Point(326, 300);
-            this.check50.Name = "check50";
-            this.check50.Size = new System.Drawing.Size(38, 17);
-            this.check50.TabIndex = 9;
-            this.check50.Text = "50";
-            this.check50.UseVisualStyleBackColor = true;
             // 
             // check40
             // 
@@ -193,7 +215,7 @@
             // check90
             // 
             this.check90.AutoSize = true;
-            this.check90.Location = new System.Drawing.Point(502, 300);
+            this.check90.Location = new System.Drawing.Point(458, 296);
             this.check90.Name = "check90";
             this.check90.Size = new System.Drawing.Size(38, 17);
             this.check90.TabIndex = 13;
@@ -203,7 +225,7 @@
             // check80
             // 
             this.check80.AutoSize = true;
-            this.check80.Location = new System.Drawing.Point(458, 300);
+            this.check80.Location = new System.Drawing.Point(414, 299);
             this.check80.Name = "check80";
             this.check80.Size = new System.Drawing.Size(38, 17);
             this.check80.TabIndex = 12;
@@ -213,7 +235,7 @@
             // check70
             // 
             this.check70.AutoSize = true;
-            this.check70.Location = new System.Drawing.Point(414, 300);
+            this.check70.Location = new System.Drawing.Point(370, 299);
             this.check70.Name = "check70";
             this.check70.Size = new System.Drawing.Size(38, 17);
             this.check70.TabIndex = 11;
@@ -223,7 +245,7 @@
             // check120
             // 
             this.check120.AutoSize = true;
-            this.check120.Location = new System.Drawing.Point(646, 299);
+            this.check120.Location = new System.Drawing.Point(602, 296);
             this.check120.Name = "check120";
             this.check120.Size = new System.Drawing.Size(44, 17);
             this.check120.TabIndex = 16;
@@ -233,7 +255,7 @@
             // check110
             // 
             this.check110.AutoSize = true;
-            this.check110.Location = new System.Drawing.Point(596, 299);
+            this.check110.Location = new System.Drawing.Point(552, 296);
             this.check110.Name = "check110";
             this.check110.Size = new System.Drawing.Size(44, 17);
             this.check110.TabIndex = 15;
@@ -243,7 +265,7 @@
             // check100
             // 
             this.check100.AutoSize = true;
-            this.check100.Location = new System.Drawing.Point(546, 300);
+            this.check100.Location = new System.Drawing.Point(502, 296);
             this.check100.Name = "check100";
             this.check100.Size = new System.Drawing.Size(44, 17);
             this.check100.TabIndex = 14;
@@ -253,7 +275,7 @@
             // check170
             // 
             this.check170.AutoSize = true;
-            this.check170.Location = new System.Drawing.Point(470, 324);
+            this.check170.Location = new System.Drawing.Point(414, 323);
             this.check170.Name = "check170";
             this.check170.Size = new System.Drawing.Size(44, 17);
             this.check170.TabIndex = 65;
@@ -263,7 +285,7 @@
             // check160
             // 
             this.check160.AutoSize = true;
-            this.check160.Location = new System.Drawing.Point(420, 324);
+            this.check160.Location = new System.Drawing.Point(370, 323);
             this.check160.Name = "check160";
             this.check160.Size = new System.Drawing.Size(44, 17);
             this.check160.TabIndex = 64;
@@ -273,7 +295,7 @@
             // check150
             // 
             this.check150.AutoSize = true;
-            this.check150.Location = new System.Drawing.Point(370, 323);
+            this.check150.Location = new System.Drawing.Point(326, 324);
             this.check150.Name = "check150";
             this.check150.Size = new System.Drawing.Size(44, 17);
             this.check150.TabIndex = 63;
@@ -283,7 +305,7 @@
             // check140
             // 
             this.check140.AutoSize = true;
-            this.check140.Location = new System.Drawing.Point(326, 323);
+            this.check140.Location = new System.Drawing.Point(282, 324);
             this.check140.Name = "check140";
             this.check140.Size = new System.Drawing.Size(44, 17);
             this.check140.TabIndex = 62;
@@ -293,7 +315,7 @@
             // check130
             // 
             this.check130.AutoSize = true;
-            this.check130.Location = new System.Drawing.Point(276, 323);
+            this.check130.Location = new System.Drawing.Point(647, 296);
             this.check130.Name = "check130";
             this.check130.Size = new System.Drawing.Size(44, 17);
             this.check130.TabIndex = 61;
@@ -320,34 +342,42 @@
             this.button2.UseVisualStyleBackColor = true;
             this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
-            // fecha
+            // check180
             // 
-            this.fecha.HeaderText = "fecha";
-            this.fecha.Name = "fecha";
-            this.fecha.ReadOnly = true;
-            this.fecha.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.check180.AutoSize = true;
+            this.check180.Location = new System.Drawing.Point(464, 323);
+            this.check180.Name = "check180";
+            this.check180.Size = new System.Drawing.Size(44, 17);
+            this.check180.TabIndex = 68;
+            this.check180.Text = "180";
+            this.check180.UseVisualStyleBackColor = true;
             // 
-            // hora
+            // ErrorBuscartxt
             // 
-            this.hora.HeaderText = "hora";
-            this.hora.Name = "hora";
-            this.hora.ReadOnly = true;
+            this.ErrorBuscartxt.Location = new System.Drawing.Point(146, 13);
+            this.ErrorBuscartxt.Name = "ErrorBuscartxt";
+            this.ErrorBuscartxt.Size = new System.Drawing.Size(174, 20);
+            this.ErrorBuscartxt.TabIndex = 69;
             // 
-            // codigoerror
+            // ErrorBusca
             // 
-            this.codigoerror.HeaderText = "Codigo error";
-            this.codigoerror.Name = "codigoerror";
-            this.codigoerror.ReadOnly = true;
+            this.ErrorBusca.AutoSize = true;
+            this.ErrorBusca.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ErrorBusca.Location = new System.Drawing.Point(44, 13);
+            this.ErrorBusca.Name = "ErrorBusca";
+            this.ErrorBusca.Size = new System.Drawing.Size(100, 20);
+            this.ErrorBusca.TabIndex = 70;
+            this.ErrorBusca.Text = "Buscar error:";
             // 
-            // Descripcion
+            // buttonBuscar
             // 
-            this.Descripcion.FillWeight = 450F;
-            this.Descripcion.HeaderText = "Descripcion";
-            this.Descripcion.Name = "Descripcion";
-            this.Descripcion.ReadOnly = true;
-            this.Descripcion.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.Descripcion.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.Descripcion.Width = 450;
+            this.buttonBuscar.Location = new System.Drawing.Point(337, 12);
+            this.buttonBuscar.Name = "buttonBuscar";
+            this.buttonBuscar.Size = new System.Drawing.Size(94, 21);
+            this.buttonBuscar.TabIndex = 71;
+            this.buttonBuscar.Text = "Buscar";
+            this.buttonBuscar.UseVisualStyleBackColor = true;
+            this.buttonBuscar.Click += new System.EventHandler(this.buttonBuscar_Click);
             // 
             // formLogs
             // 
@@ -355,6 +385,10 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Control;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.buttonBuscar);
+            this.Controls.Add(this.ErrorBusca);
+            this.Controls.Add(this.ErrorBuscartxt);
+            this.Controls.Add(this.check180);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.check170);
@@ -369,7 +403,6 @@
             this.Controls.Add(this.check80);
             this.Controls.Add(this.check70);
             this.Controls.Add(this.check60);
-            this.Controls.Add(this.check50);
             this.Controls.Add(this.check40);
             this.Controls.Add(this.check30);
             this.Controls.Add(this.check20);
@@ -397,7 +430,6 @@
         private System.Windows.Forms.CheckBox check20;
         private System.Windows.Forms.CheckBox check30;
         private System.Windows.Forms.CheckBox check60;
-        private System.Windows.Forms.CheckBox check50;
         private System.Windows.Forms.CheckBox check40;
         private System.Windows.Forms.CheckBox check90;
         private System.Windows.Forms.CheckBox check80;
@@ -417,5 +449,9 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn codigoerror;
         private System.Windows.Forms.DataGridViewTextBoxColumn Descripcion;
         private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.CheckBox check180;
+        private System.Windows.Forms.TextBox ErrorBuscartxt;
+        private System.Windows.Forms.Label ErrorBusca;
+        private System.Windows.Forms.Button buttonBuscar;
     }
 }

@@ -1,19 +1,20 @@
-﻿using System;
-using System.Diagnostics;
-using System.IO;
-using System.Runtime.InteropServices;
-using System.Windows.Forms;
-using System.Net;
+﻿using Infragistics.Win.DataVisualization;
+using Microsoft.VisualBasic.ApplicationServices;
+using SpaceLauncher.model;
+using SpaceLauncher.vista;
+using System;
 using System.Collections.Specialized;
 using System.ComponentModel;
+using System.Diagnostics;
 using System.Drawing;
+using System.Drawing;
+using System.IO;
 using System.Linq;
-using SpaceLauncher.model;
-using Ubiety.Dns.Core.Records;
-using Microsoft.VisualBasic.ApplicationServices;
-using Infragistics.Win.DataVisualization;
+using System.Net;
+using System.Runtime.InteropServices;
 using System.Text.RegularExpressions;
-using SpaceLauncher.vista;
+using System.Windows.Forms;
+using Ubiety.Dns.Core.Records;
 
 namespace SpaceLauncher
 {
@@ -25,12 +26,26 @@ namespace SpaceLauncher
         [DllImport("user32.DLL", EntryPoint = "SendMessage")]
         private extern static void SendMessage(System.IntPtr hwnd, int wmsg, int wparam, int lparam);
         conexion con = new conexion();
-        private tiempoJugado tJugat= new tiempoJugado();
+        private tiempoJugado tJugat = new tiempoJugado();
 
-
+        /// <summary>
+        /// Cargar FormularioPrincipal!
+        /// </summary>
+        /// <param name="user"></param>
         public FormPrincipal(String user)
         {
             InitializeComponent();
+            //Carregem la icona per a que es mostri com icona de la finestra
+            try
+            {
+                string path = Directory.GetCurrentDirectory() + "\\" + "icon" + "\\" + "icon.ico";
+                Icon icon = new Icon(path);
+                this.Icon = icon;
+            }
+            catch
+            {
+                logs.Save("Error al importar icono aplicacion!", 180);
+            }
             usuario.Text = user;
             dateNeixament.CustomFormat = "yyyy-M-dd";
             labelhoras();
@@ -46,6 +61,11 @@ namespace SpaceLauncher
 
         //text Box buidar 
 
+        /// <summary>
+        /// Vaciar textbox cuando el usuario entre!
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void txtpass_Enter(object sender, EventArgs e)
         {
             if (txtpass.Text == "CONTRASEÑA(*)")
@@ -59,6 +79,11 @@ namespace SpaceLauncher
 
         // Accio al sortir del text box sortir.
 
+        /// <summary>
+        /// Rellenar textbox si el usuario sale sin poner nada!
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void txtpass_Leave(object sender, EventArgs e)
         {
             if (txtpass.Text == "")
@@ -71,6 +96,12 @@ namespace SpaceLauncher
         }
 
         //text Box buidar 
+
+        /// <summary>
+        /// Vaciar textbox cuando el usuario entre!
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
 
         private void txtNewEmail_Enter(object sender, EventArgs e)
         {
@@ -86,6 +117,11 @@ namespace SpaceLauncher
 
         // Accio al sortir del text box sortir.
 
+        /// <summary>
+        /// Rellenar textbox si el usuario sale sin poner nada!
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void txtNewEmail_Leave(object sender, EventArgs e)
         {
             if (txtNewEmail.Text == "")
@@ -99,6 +135,12 @@ namespace SpaceLauncher
 
         //text Box buidar 
 
+        /// <summary>
+        /// Vaciar textbox cuando el usuario entre!
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+
         private void txtNewPass_Enter(object sender, EventArgs e)
         {
             if (txtNewPass.Text == "CONTRASEÑA(*)")
@@ -110,6 +152,11 @@ namespace SpaceLauncher
         }
 
         // Accio al sortir del text box sortir.
+        /// <summary>
+        /// Rellenar textbox si el usuario sale sin poner nada!
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
 
         private void txtNewPass_Leave(object sender, EventArgs e)
         {
@@ -122,11 +169,17 @@ namespace SpaceLauncher
         }
 
 
+
         //////////////////////////////////////////
         ///               Carregar Dades
         //////////////////////////////////////////
 
         //Carregar les hores jugades de cada joc!!!
+
+        /// <summary>
+        /// Cargar datos a la pantalla.
+        /// </summary>
+
         private void labelhoras()
         {
             //carregar taula buscadorjoc!!!
@@ -135,7 +188,8 @@ namespace SpaceLauncher
                 buscadortabla.Rows.Clear();
                 foreach (juego juegos in con.guardarEnTabla("juegos"))
                 {
-                    buscadortabla.Rows.Add(new object[] { juegos.NombreJuego, juegos.IdJuego });
+                    tiempoJugado tempsJugat = new tiempoJugado(juegos.NombreJuego, usuario.Text);
+                    buscadortabla.Rows.Add(new object[] { juegos.NombreJuego, tempsJugat.CalcularTiempo(con.tiempoJugado(tempsJugat)) });
                 }
 
                 tiempoJugado JuegoBeta = new tiempoJugado("JuegoBeta", usuario.Text);
@@ -163,21 +217,26 @@ namespace SpaceLauncher
             }
             catch
             {
-                logs.Save("Error en cargar labels!!",130);
+                logs.Save("Error en cargar labels!!", 130);
             }
         }
 
-        //////////////////////////////////////////
-        ///  Accions per a poder moure la pantalla
-        //////////////////////////////////////////
 
         //Definimos las cosas que se tienen que cargar al iniciar este formulario.
+
+        ///
         private void FormPrincipal_Load(object sender, EventArgs e)
         {
 
         }
 
         //Definim que si es pulsa a la part superior de la finestra es pugui moure.
+
+        /// <summary>
+        /// Accion para mover pantalla
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void top_MouseDown(object sender, MouseEventArgs e)
         {
             ReleaseCapture();
@@ -188,15 +247,28 @@ namespace SpaceLauncher
         //////////////////////////////////////////
         ///               Botons
         //////////////////////////////////////////
-       
+
+
 
         //Definim les accions al clicar el boto de tancar.
+
+        /// <summary>
+        /// Boton para cerrar Programa! 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btncerrar_Click(object sender, EventArgs e)
         {
             //Tancar aplicacio.
             Application.Exit();
         }
         //Definim les accions al clicar el boto de minimitzar.
+
+        /// <summary>
+        /// Boton para minimizar el programa!
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnminimizar_Click(object sender, EventArgs e)
         {
             //Minimitzem pantalla
@@ -204,30 +276,60 @@ namespace SpaceLauncher
 
         }
         //boto pagina principal
+
+        /// <summary>
+        /// Boton pestaña principal!
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void buttonNews_Click(object sender, EventArgs e)
         {
             this.tabControl.SelectedTab = principal;
 
         }
         //boto pestaña buscador
+
+        /// <summary>
+        /// Boton pestaña buscador!
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void bunifuFlatButton8_Click(object sender, EventArgs e)
         {
             this.tabControl.SelectedTab = buscador;
         }
 
         //boto pestaña game1
+
+        /// <summary>
+        /// Accion al ir a pestaña juego!
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void bunifuFlatButton2_Click(object sender, EventArgs e)
         {
             this.tabControl.SelectedTab = game1;
 
         }
         //boto pestaña game2
+
+        /// <summary>
+        /// Accion al ir a pestaña juego!
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void bunifuFlatButton3_Click(object sender, EventArgs e)
         {
             this.tabControl.SelectedTab = game2;
 
         }
         //boto pestaña game3
+
+        /// <summary>
+        /// Accion al ir a pestaña juego!
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
 
         private void bunifuFlatButton3_Click_1(object sender, EventArgs e)
         {
@@ -236,12 +338,23 @@ namespace SpaceLauncher
 
         //boto pestaña game4
 
+        /// <summary>
+        /// Accion al ir a pestaña juego!
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void bunifuFlatButton2_Click_2(object sender, EventArgs e)
         {
             this.tabControl.SelectedTab = game4;
         }
 
         //boto pestaña perfil
+
+        /// <summary>
+        /// Accion al pulsar boton perfil!
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
 
         private void bunifuFlatButton1_Click(object sender, EventArgs e)
         {
@@ -250,6 +363,12 @@ namespace SpaceLauncher
 
         //Accio al clicar imatge joc1
 
+        /// <summary>
+        /// Accion al pulsar imagen!
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+
         private void pictureBox5_Click(object sender, EventArgs e)
         {
             this.tabControl.SelectedTab = game1;
@@ -257,6 +376,11 @@ namespace SpaceLauncher
         }
         //Accio al clicar imatge joc2
 
+        /// <summary>
+        /// Accion al pulsar imagen!
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void pictureBox6_Click(object sender, EventArgs e)
         {
             this.tabControl.SelectedTab = game2;
@@ -264,6 +388,12 @@ namespace SpaceLauncher
         }
 
         //Accio al clicar imatge joc3
+
+        /// <summary>
+        /// Accion al pulsar imagen!
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
 
         private void pictureBox8_Click(object sender, EventArgs e)
         {
@@ -273,6 +403,12 @@ namespace SpaceLauncher
 
         //Accio al clicar imatge joc4
 
+        /// <summary>
+        /// Accion al pulsar imagen!
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+
         private void pictureBox7_Click(object sender, EventArgs e)
         {
             this.tabControl.SelectedTab = game4;
@@ -280,6 +416,12 @@ namespace SpaceLauncher
 
 
         //Accio al clicar el boto de tencar sessio.
+
+        /// <summary>
+        /// Accion al Cerrar sesion!
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void bunifuThinButton21_Click(object sender, EventArgs e)
         {
             FormLogin form = new FormLogin();
@@ -289,6 +431,12 @@ namespace SpaceLauncher
 
 
         //Boto per iniciar joc
+
+        /// <summary>
+        /// iniciar juego wegi.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
 
         private void bunifuFlatButton4_Click(object sender, EventArgs e)
         {
@@ -306,6 +454,12 @@ namespace SpaceLauncher
 
         //botons iniciar joc 
 
+        /// <summary>
+        /// iniciar juego Beta.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+
         private void bunifuFlatButton5_Click(object sender, EventArgs e)
         {
             try
@@ -320,6 +474,12 @@ namespace SpaceLauncher
         }
 
         //Boto per iniciar joc
+
+        /// <summary>
+        /// iniciar juego pde.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
 
         private void bunifuFlatButton7_Click(object sender, EventArgs e)
         {
@@ -336,6 +496,11 @@ namespace SpaceLauncher
 
         //Boto per iniciar joc
 
+        /// <summary>
+        /// Iniciar juego arquer
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void bunifuFlatButton3_Click_2(object sender, EventArgs e)
         {
             try
@@ -351,6 +516,12 @@ namespace SpaceLauncher
 
         // Accions al buscar Joc
 
+        /// <summary>
+        /// Acciones al pulsar el boton de buscar.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+
         private void button1_Click(object sender, EventArgs e)
         {
             try
@@ -358,7 +529,8 @@ namespace SpaceLauncher
                 buscadortabla.Rows.Clear();
                 foreach (juego juegos in con.guardarEnTablaBuscar(buscadortxt.Text))
                 {
-                    buscadortabla.Rows.Add(new object[] { juegos.NombreJuego, juegos.IdJuego });
+                    tiempoJugado tempsJugat = new tiempoJugado(juegos.NombreJuego, usuario.Text);
+                    buscadortabla.Rows.Add(new object[] { juegos.NombreJuego, tempsJugat.CalcularTiempo(con.tiempoJugado(tempsJugat))});
                 }
             }
             catch
@@ -368,6 +540,12 @@ namespace SpaceLauncher
         }
 
         //Accions al donar doble click al resultat de buscar jocs
+
+        /// <summary>
+        /// Acciones al dar doble click a un registro de la tabla.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
 
         private void buscadortabla_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
@@ -408,6 +586,11 @@ namespace SpaceLauncher
 
         //Entrar al form logs
 
+        /// <summary>
+        /// Boton para iniciar la ventana de logs.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void button2_Click(object sender, EventArgs e)
         {
             formLogs form = new formLogs();
@@ -416,49 +599,30 @@ namespace SpaceLauncher
 
         //Accions al clicar al boto editar perfil
 
+        /// <summary>
+        /// Boton para modificar usuario.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
 
         private void bunifuFlatButton2_Click_1(object sender, EventArgs e)
         {
             try
             {
                 conexion con = new conexion();
-                usuari user = new usuari(usuario.Text,  txtEmail.Text , txtpass.Text, dateNeixament.Text,sexe.Text);
+                usuari user = new usuari(usuario.Text, txtEmail.Text, txtpass.Text, dateNeixament.Text, sexe.Text);
                 Boolean prova = con.mysqlLogin(user);
                 Boolean updated;
                 if (prova)
                 {
-                        if (txtNewPass.Text!= "CONTRASEÑA(*)" &&user.contraseñaValida(txtNewPass.Text))
+                    if (txtNewPass.Text != "CONTRASEÑA(*)" && user.contraseñaValida(txtNewPass.Text))
+                    {
+                        user.Clave = txtNewPass.Text;
+                        if (txtNewEmail.Text != "EMAIL")
                         {
-                            user.Clave = txtNewPass.Text;
-                            if (txtNewEmail.Text != "EMAIL")
+                            user.Email = txtNewEmail.Text;
+                            if (user.ComprobarFormatoEmail(user.Email))
                             {
-                                user.Email = txtNewEmail.Text;
-                                if (user.ComprobarFormatoEmail(user.Email))
-                                {
-                                    updated = con.mysqlUpdateUser(user);
-                                    if (updated)
-                                    {
-                                        txtErrorUpdate.Text = "Datos Actualizados!!";
-                                        System.Threading.Thread.Sleep(2000);
-                                        this.Hide();
-                                        FormPrincipal form = new FormPrincipal(user.Usuario);
-                                        form.Show();
-
-                                    }
-                                    else
-                                    {
-                                        txtErrorUpdate.Text = "Error al modificar los datos. Intentelo mas tarde!!";
-                                        logs.Save("Error al modificar Datos. Imposible conectar con la BBDD!!", 140);
-                                    }
-                                }
-                                else
-                                {
-                                    txtErrorUpdate.Text = "Introduce una direccion electronica Valida!!";
-                                }
-                            }
-                            else
-                            {
-
                                 updated = con.mysqlUpdateUser(user);
                                 if (updated)
                                 {
@@ -472,15 +636,39 @@ namespace SpaceLauncher
                                 else
                                 {
                                     txtErrorUpdate.Text = "Error al modificar los datos. Intentelo mas tarde!!";
-                                    logs.Save("Error al modificar Datos. Imposible conectar con la BBDD!!", 500);
+                                    logs.Save("Error al modificar Datos. Imposible conectar con la BBDD!!", 140);
                                 }
+                            }
+                            else
+                            {
+                                txtErrorUpdate.Text = "Introduce una direccion electronica Valida!!";
                             }
                         }
                         else
                         {
-                            txtErrorUpdate.Text = "Contraseña introducida no valida.!";
+
+                            updated = con.mysqlUpdateUser(user);
+                            if (updated)
+                            {
+                                txtErrorUpdate.Text = "Datos Actualizados!!";
+                                System.Threading.Thread.Sleep(2000);
+                                this.Hide();
+                                FormPrincipal form = new FormPrincipal(user.Usuario);
+                                form.Show();
+
+                            }
+                            else
+                            {
+                                txtErrorUpdate.Text = "Error al modificar los datos. Intentelo mas tarde!!";
+                                logs.Save("Error al modificar Datos. Imposible conectar con la BBDD!!", 500);
+                            }
                         }
-   
+                    }
+                    else
+                    {
+                        txtErrorUpdate.Text = "Contraseña introducida no valida.!";
+                    }
+
                 }
                 else
                 {
@@ -493,20 +681,23 @@ namespace SpaceLauncher
             }
 
         }
-        
+
         //clase jugar
 
-        
-        
+
+        /// <summary>
+        /// Metodo para iniciar juegos i contar el tiempo jugado.
+        /// </summary>
+        /// <param name="game"></param>
         public void jugar(string game)
         {
             try
             {
-                
+
                 //Creem un string on indiqui el directori actual on esta colocat el executable..
                 string path = Directory.GetCurrentDirectory();
                 int idproc = 0;
-                
+
 
                 // Creem el process per iniciar el joc.
 
@@ -589,7 +780,7 @@ namespace SpaceLauncher
             }
             catch
             {
-                logs.Save("Error en la clase jugar!",150);
+                logs.Save("Error en la clase jugar!", 150);
             }
 
         }

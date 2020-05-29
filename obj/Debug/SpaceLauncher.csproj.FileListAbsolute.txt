@@ -111,4 +111,5 @@ C:\Users\xavi\Desktop\SpaceLauncher\SpaceLauncher\obj\Debug\SpaceLauncher.exe.ma
 C:\Users\xavi\Desktop\SpaceLauncher\SpaceLauncher\obj\Debug\SpaceLauncher.application
 C:\Users\xavi\Desktop\SpaceLauncher\SpaceLauncher\obj\Debug\SpaceLauncher.FormRegister.resources
 C:\Users\xavi\Desktop\SpaceLauncher\SpaceLauncher\obj\Debug\SpaceLauncher.vista.formLogs.resources
+C:\Users\xavi\Desktop\SpaceLauncher\SpaceLauncher\bin\Debug\SpaceLauncher.xml
 C:\Users\xavi\Desktop\SpaceLauncher\SpaceLauncher\obj\Debug\SpaceLauncher.csprojAssemblyReference.cache

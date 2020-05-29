@@ -1,19 +1,20 @@
-﻿using System;
-using System.Drawing;
-using System.Runtime.InteropServices;
-using System.Windows.Forms;
+﻿using CryptSharp;
+using Microsoft.VisualBasic.ApplicationServices;
+using MySql.Data.MySqlClient;
+using SpaceLauncher.model;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Drawing;
+using System.IO;
 using System.Linq;
-using System.Text;
-using MySql.Data.MySqlClient;
+using System.Runtime.InteropServices;
 using System.Security.Cryptography;
 using System.Text;
-using CryptSharp;
-using SpaceLauncher.model;
+using System.Text;
 using System.Text.RegularExpressions;
-using Microsoft.VisualBasic.ApplicationServices;
+using System.Windows.Forms;
 
 namespace SpaceLauncher
 {
@@ -26,13 +27,31 @@ namespace SpaceLauncher
         private extern static void ReleaseCapture();
         [DllImport("user32.DLL", EntryPoint = "SendMessage")]
         private extern static void SendMessage(System.IntPtr hwnd, int wmsg, int wparam, int lparam);
-
+        /// <summary>
+        /// Iniciar formRegister!
+        /// </summary>
         public FormRegister()
         {
             InitializeComponent();
+            try
+            {
+                string path = Directory.GetCurrentDirectory() + "\\" + "icon" + "\\" + "icon.ico";
+                Icon icon = new Icon(path);
+                this.Icon = icon;
+            }
+            catch
+            {
+                logs.Save("Error al importar icono aplicacion!", 180);
+            }
             dateNeixament.CustomFormat = "yyyy-M-dd";
         }
         //Definim que a l'entrar a usuario es buidi
+
+        /// <summary>
+        /// Vaciar textbox si el usuario entra!
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void textBox1_Enter(object sender, EventArgs e)
         {
             if (txtuser.Text == "USUARIO")
@@ -42,10 +61,14 @@ namespace SpaceLauncher
             }
         }
 
-
-
-
         //Definim que si sortim del Usuario i està buit, es torni a veure Usuario.
+
+
+        /// <summary>
+        /// Rellenar textbox si el usuario no ha introducido nada!
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void textBox1_Leave(object sender, EventArgs e)
         {
             if (txtuser.Text == "")
@@ -56,6 +79,12 @@ namespace SpaceLauncher
         }
 
         //Definim que a l'entrar a contrasenya es buidi, també definim que es vegi en forma de password
+
+        /// <summary>
+        /// Vaciar textbox si el usuario entra!
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
 
         private void txtpass_Enter(object sender,
             EventArgs e)
@@ -70,6 +99,12 @@ namespace SpaceLauncher
 
         //Definim que si sortim del Contraseña i està buit, es torni a veure Contraseña.
 
+        /// <summary>
+        /// Rellenar textbox si el usuario no ha introducido nada!
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+
         private void txtpass_Leave(object sender, EventArgs e)
         {
             if (txtpass.Text == "")
@@ -80,6 +115,12 @@ namespace SpaceLauncher
 
             }
         }
+
+        /// <summary>
+        /// Vaciar textbox si el usuario entra!
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void txtEmail_Enter(object sender, EventArgs e)
         {
             if (txtEmail.Text == "EMAIL")
@@ -88,6 +129,13 @@ namespace SpaceLauncher
                 txtEmail.ForeColor = Color.LightGray;
             }
         }
+
+        /// <summary>
+        /// Rellenar textbox si el usuario no ha introducido nada!
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+
         private void txtEmail_Leave(object sender, EventArgs e)
         {
             if (txtEmail.Text == "")
@@ -97,11 +145,23 @@ namespace SpaceLauncher
             }
         }
         //Boto Clicar.
+
+        /// <summary>
+        /// Boton cerrar Programa!
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btncerrar_Click(object sender, EventArgs e)
         {
             Application.Exit();
         }
         //Boto minimitzar.
+
+        /// <summary>
+        /// Boton minimizar Programa!
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnminimizar_Click(object sender, EventArgs e)
         {
             this.WindowState = FormWindowState.Minimized;
@@ -109,6 +169,11 @@ namespace SpaceLauncher
 
         //Codi per poder moure la finestra com nosaltres volguem.
 
+        /// <summary>
+        /// Codigo para poder mover la ventana!
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void Form1_MouseDown(object sender, MouseEventArgs e)
         {
             ReleaseCapture();
@@ -116,6 +181,11 @@ namespace SpaceLauncher
         }
         //Codi per poder moure la finestra com nosaltres volguem.
 
+        /// <summary>
+        /// Codigo para poder mover la ventana!
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
 
         private void panel1_MouseDown(object sender, MouseEventArgs e)
         {
@@ -124,16 +194,22 @@ namespace SpaceLauncher
         }
 
         //Accions al clicar el boto Register.
+
+        /// <summary>
+        /// Acciones al pulsar al boton Register!
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnLogin_Click(object sender, EventArgs e)
         {
             try
             {
                 conexion obj_conectar = new conexion();
-                usuari user = new usuari(txtuser.Text,txtEmail.Text,txtpass.Text,dateNeixament.Text,sexe.Text);
-               
+                usuari user = new usuari(txtuser.Text, txtEmail.Text, txtpass.Text, dateNeixament.Text, sexe.Text);
+
                 if (user.contraseñaValida(user.Clave))
                 {
-                    
+
                     if (user.ComprobarFormatoEmail(user.Email))
                     {
 
@@ -150,7 +226,8 @@ namespace SpaceLauncher
 
                         }
                     }
-                    else {
+                    else
+                    {
                         loginError.Text = "Introduce una direccion electronica valida!!";
                     }
                 }
@@ -162,23 +239,28 @@ namespace SpaceLauncher
             catch (Exception ex)
             {
 
-                logs.Save("Error al Insertar nuevoUsuario.",20);
+                logs.Save("Error al Insertar nuevoUsuario.", 20);
             }
 
 
         }
 
+        /// <summary>
+        /// Accion al decir que tienes cuenta!
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
 
-        private void linkpass_LinkClicked_1(object sender, LinkLabelLinkClickedEventArgs e)
+        private void registrado_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            FormRegister form = new FormRegister();
+            FormLogin form = new FormLogin();
             form.Show();
             this.Hide();
         }
-        }
-
-  
     }
+
+
+}
 
 
 
