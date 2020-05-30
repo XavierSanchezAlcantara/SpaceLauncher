@@ -43,7 +43,7 @@ namespace SpaceLauncher.vista
             }
             catch
             {
-
+                logs.Save("Error al cargar logs!", 50);
             }
             fechaError.CustomFormat = "dd/MM/yyyy";
         }
