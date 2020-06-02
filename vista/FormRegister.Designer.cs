@@ -132,7 +132,7 @@
             this.txtuser.Location = new System.Drawing.Point(309, 40);
             this.txtuser.Name = "txtuser";
             this.txtuser.Size = new System.Drawing.Size(408, 19);
-            this.txtuser.TabIndex = 1;
+            this.txtuser.TabIndex = 2;
             this.txtuser.Text = "USUARIO";
             this.txtuser.Enter += new System.EventHandler(this.textBox1_Enter);
             this.txtuser.Leave += new System.EventHandler(this.textBox1_Leave);
@@ -146,7 +146,7 @@
             this.txtpass.Location = new System.Drawing.Point(306, 107);
             this.txtpass.Name = "txtpass";
             this.txtpass.Size = new System.Drawing.Size(408, 19);
-            this.txtpass.TabIndex = 2;
+            this.txtpass.TabIndex = 3;
             this.txtpass.Text = "CONTRASEÑA";
             this.txtpass.Enter += new System.EventHandler(this.txtpass_Enter);
             this.txtpass.Leave += new System.EventHandler(this.txtpass_Leave);
@@ -227,7 +227,7 @@
             this.txtEmail.Location = new System.Drawing.Point(311, 174);
             this.txtEmail.Name = "txtEmail";
             this.txtEmail.Size = new System.Drawing.Size(408, 19);
-            this.txtEmail.TabIndex = 3;
+            this.txtEmail.TabIndex = 4;
             this.txtEmail.Text = "EMAIL";
             this.txtEmail.Enter += new System.EventHandler(this.txtEmail_Enter);
             this.txtEmail.Leave += new System.EventHandler(this.txtEmail_Leave);
@@ -241,7 +241,7 @@
             this.dateNeixament.MinDate = new System.DateTime(1900, 1, 1, 0, 0, 0, 0);
             this.dateNeixament.Name = "dateNeixament";
             this.dateNeixament.Size = new System.Drawing.Size(89, 20);
-            this.dateNeixament.TabIndex = 10;
+            this.dateNeixament.TabIndex = 5;
             this.dateNeixament.TabStop = false;
             this.dateNeixament.Value = new System.DateTime(2020, 5, 26, 0, 0, 0, 0);
             // 
@@ -276,12 +276,12 @@
             this.sexe.Name = "sexe";
             this.sexe.Size = new System.Drawing.Size(47, 21);
             this.sexe.Sorted = true;
-            this.sexe.TabIndex = 13;
+            this.sexe.TabIndex = 6;
             // 
             // registrado
             // 
             this.registrado.AutoSize = true;
-            this.registrado.LinkColor = System.Drawing.Color.Red;
+            this.registrado.LinkColor = System.Drawing.Color.DimGray;
             this.registrado.Location = new System.Drawing.Point(459, 368);
             this.registrado.Name = "registrado";
             this.registrado.Size = new System.Drawing.Size(109, 13);

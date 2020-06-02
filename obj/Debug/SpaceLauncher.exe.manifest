@@ -271,14 +271,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="SpaceLauncher.exe" size="5205464">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="SpaceLauncher.exe" size="5205976">
       <assemblyIdentity name="SpaceLauncher" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>awcQiGHL/US881/0MTxXQg8sVolos5eYz31wq+NB8Zs=</dsig:DigestValue>
+        <dsig:DigestValue>YUFkVn+EWfzhFzdoF2zqKc8IRgXzOhnXaj8m7rmzFac=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -290,7 +290,7 @@
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>YP7P4QmiAHUghwZY1noExiystBGvBkN4SEM9PnyodDo=</dsig:DigestValue>
+        <dsig:DigestValue>tmAQPpQXclX4hds1OAL50EIrSCCafgojYOJ153s2Ruc=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>

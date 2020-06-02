@@ -12,14 +12,14 @@ using System.Windows.Forms;
 
 namespace SpaceLauncher.vista
 {
-    public partial class formLogs : Form
+    public partial class FormPrincipal : Form
     {
         logs loge = new logs();
 
         /// <summary>
         /// Carregar pantalla logs!
         /// </summary>
-        public formLogs()
+        public FormPrincipal()
         {
             InitializeComponent();
             try

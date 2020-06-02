@@ -206,34 +206,46 @@ namespace SpaceLauncher
             {
                 conexion obj_conectar = new conexion();
                 usuari user = new usuari(txtuser.Text, txtEmail.Text, txtpass.Text, dateNeixament.Text, sexe.Text);
-
-                if (user.contraseñaValida(user.Clave))
-                {
-
-                    if (user.ComprobarFormatoEmail(user.Email))
+                if (txtuser.Text!="Usuario") {
+                    if (user.contraseñaValida(user.Clave))
                     {
 
-                        Boolean prova = obj_conectar.mysqlRegister(user);
-                        if (prova)
+                        if (user.ComprobarFormatoEmail(user.Email))
                         {
-                            FormLogin form = new FormLogin();
-                            form.Show();
-                            this.Hide();
+                            if (sexe.Text!="") {
+
+                                Boolean prova = obj_conectar.mysqlRegister(user);
+                                if (prova)
+                                {
+                                    FormLogin form = new FormLogin();
+                                    form.Show();
+                                    this.Hide();
+                                }
+                                else
+                                {
+                                    loginError.Text = "Usuario ya esta registrado!!";
+
+                                }
+                            }
+                            else {
+                                loginError.Text = "Selecciona tu sexo!!";
+                            }
+
                         }
                         else
                         {
-                            loginError.Text = "Usuario ya esta registrado!!";
-
+                            loginError.Text = "Introduce una direccion electronica valida!!";
                         }
                     }
                     else
                     {
-                        loginError.Text = "Introduce una direccion electronica valida!!";
+                        loginError.Text = "Contraseña introducida no valida.";
                     }
+
                 }
-                else
-                {
-                    loginError.Text = "Contraseña introducida no valida.";
+                else {
+                    loginError.Text = "Introduce un usuario valido.";
+
                 }
             }
             catch (Exception ex)

@@ -1,6 +1,6 @@
 ﻿namespace SpaceLauncher.vista
 {
-    partial class formLogs
+    partial class FormPrincipal
     {
         /// <summary>
         /// Required designer variable.
@@ -385,6 +385,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Control;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.buttonBuscar);
             this.Controls.Add(this.ErrorBusca);
             this.Controls.Add(this.ErrorBuscartxt);
@@ -410,7 +411,6 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.fechaError);
-            this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.buttonBuscarLogs);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "formLogs";

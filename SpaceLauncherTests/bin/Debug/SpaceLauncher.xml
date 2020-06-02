@@ -1,0 +1,693 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>SpaceLauncher</name>
+    </assembly>
+    <members>
+        <member name="M:SpaceLauncher.conexion.mysqlRegister(SpaceLauncher.model.usuari)">
+            <summary>
+            Registrar usuario!
+            </summary>
+            <param name="user"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SpaceLauncher.conexion.mysqlEmail(System.String)">
+            <summary>
+            Consultar Email de usuario!
+            </summary>
+            <param name="usuario"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SpaceLauncher.conexion.mysqlSexe(System.String)">
+            <summary>
+            Consultar sexo Usuario!
+            </summary>
+            <param name="usuario"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SpaceLauncher.conexion.mysqlFechaNacimiento(System.String)">
+            <summary>
+            Consultar FechaNacimiento de un usuario!
+            </summary>
+            <param name="usuario"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SpaceLauncher.conexion.mysqlLogin(SpaceLauncher.model.usuari)">
+            <summary>
+            Comprovar si las credenciales del usuario son correctas!
+            </summary>
+            <param name="user"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SpaceLauncher.conexion.mysqlJuego(SpaceLauncher.model.tiempoJugado)">
+            <summary>
+            Insertar tiempo jugado a un juego!
+            </summary>
+            <param name="juego"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SpaceLauncher.conexion.tiempoJugado(SpaceLauncher.model.tiempoJugado)">
+            <summary>
+            Consultar timepoJugado!
+            </summary>
+            <param name="juego"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SpaceLauncher.conexion.tiempoJugadototal(System.String)">
+            <summary>
+            Consultar tiempoJugadoTotal!
+            </summary>
+            <param name="usuario"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SpaceLauncher.conexion.mysqlUpdateUser(SpaceLauncher.model.usuari)">
+            <summary>
+            Editar Usuario.
+            </summary>
+            <param name="user"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SpaceLauncher.conexion.guardarEnTablaBuscar(System.String)">
+            <summary>
+            Consultar Juegos a partir de string!
+            </summary>
+            <param name="juego"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SpaceLauncher.conexion.guardarEnTabla(System.String)">
+            <summary>
+            Guardar todos los juegos en la tabla!
+            </summary>
+            <param name="nombreTabla"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SpaceLauncher.model.juego.#ctor(System.Int32,System.String)">
+            <summary>
+            Constructor juego!
+            </summary>
+            <param name="idJuego"></param>
+            <param name="nombreJuego"></param>
+        </member>
+        <member name="M:SpaceLauncher.model.logs.#ctor(System.String,System.String,System.String,System.Int32)">
+            <summary>
+            Constructor logs!
+            </summary>
+            <param name="fecha"></param>
+            <param name="hora"></param>
+            <param name="error"></param>
+            <param name="code"></param>
+        </member>
+        <member name="M:SpaceLauncher.model.logs.Save(System.String,System.Int32)">
+            <summary>
+            Metodo para crear y editar el archivo logs!
+            </summary>
+            <param name="error"></param>
+            <param name="codeError"></param>
+        </member>
+        <member name="M:SpaceLauncher.model.logs.leer">
+            <summary>
+            Funcion para leer todos los logs!
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:SpaceLauncher.model.logs.leerConString(System.String)">
+            <summary>
+            Funcion para guardar errores segun string
+            </summary>
+            <param name="logBuscador"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SpaceLauncher.model.tiempoJugado.#ctor(System.String,System.String,System.String,System.DateTime)">
+            <summary>
+            Constructor tiempoJugado!
+            </summary>
+            <param name="nombreJuego"></param>
+            <param name="idUsuario"></param>
+            <param name="tiempo"></param>
+            <param name="fecha"></param>
+        </member>
+        <member name="M:SpaceLauncher.model.tiempoJugado.#ctor">
+            <summary>
+            Constructor tiempoJugado
+            </summary>
+        </member>
+        <member name="M:SpaceLauncher.model.tiempoJugado.#ctor(System.String,System.String)">
+            <summary>
+            Constructor tiempoJugado
+            </summary>
+            <param name="nombreJuego"></param>
+            <param name="idUsuario"></param>
+        </member>
+        <member name="M:SpaceLauncher.model.tiempoJugado.calcularTiempo2(System.String,System.String,System.String)">
+            <summary>
+            Metodo para calcular tiempo en segundos!
+            </summary>
+            <param name="h"></param>
+            <param name="m"></param>
+            <param name="s"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SpaceLauncher.model.tiempoJugado.CalcularTiempo(System.Int32)">
+            <summary>
+            Metodo para calcular de segundos a horas, minutos y segundos!
+            </summary>
+            <param name="tsegundos"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SpaceLauncher.model.usuari.#ctor(System.String,System.String,System.String,System.String,System.String)">
+            <summary>
+            Constructor usuario!
+            </summary>
+            <param name="usuario"></param>
+            <param name="email"></param>
+            <param name="clave"></param>
+            <param name="fechaNacimiento"></param>
+            <param name="sexo"></param>
+        </member>
+        <member name="M:SpaceLauncher.model.usuari.#ctor(System.String,System.String)">
+            <summary>
+            Constructor usuario!
+            </summary>
+            <param name="usuario"></param>
+            <param name="clave"></param>
+        </member>
+        <member name="M:SpaceLauncher.model.usuari.contraseñaValida(System.String)">
+            <summary>
+            Comprovar si la contraseña cumple todos los requisitos!
+            </summary>
+            <param name="contraseña"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SpaceLauncher.model.usuari.ComprobarFormatoEmail(System.String)">
+            <summary>
+            Funcion para comprovar si el formato es formato email.
+            </summary>
+            <param name="seMailAComprobar"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SpaceLauncher.vista.FormPrincipal.#ctor">
+            <summary>
+            Carregar pantalla logs!
+            </summary>
+        </member>
+        <member name="M:SpaceLauncher.vista.FormPrincipal.button1_Click(System.Object,System.EventArgs)">
+            <summary>
+            Accio per filtrar logs per text!
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:SpaceLauncher.vista.FormPrincipal.button1_Click_1(System.Object,System.EventArgs)">
+            <summary>
+            Accion boton filtrar codigo error!
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:SpaceLauncher.vista.FormPrincipal.button2_Click(System.Object,System.EventArgs)">
+            <summary>
+            Cargar todos los logs!
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:SpaceLauncher.vista.FormPrincipal.buttonBuscar_Click(System.Object,System.EventArgs)">
+            <summary>
+            Cargar logs a partir de una string!
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="F:SpaceLauncher.vista.FormPrincipal.components">
+            <summary>
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:SpaceLauncher.vista.FormPrincipal.Dispose(System.Boolean)">
+            <summary>
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:SpaceLauncher.vista.FormPrincipal.InitializeComponent">
+            <summary>
+            Required method for Designer support - do not modify
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="M:SpaceLauncher.FormRegister.#ctor">
+            <summary>
+            Iniciar formRegister!
+            </summary>
+        </member>
+        <member name="M:SpaceLauncher.FormRegister.textBox1_Enter(System.Object,System.EventArgs)">
+            <summary>
+            Vaciar textbox si el usuario entra!
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:SpaceLauncher.FormRegister.textBox1_Leave(System.Object,System.EventArgs)">
+            <summary>
+            Rellenar textbox si el usuario no ha introducido nada!
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:SpaceLauncher.FormRegister.txtpass_Enter(System.Object,System.EventArgs)">
+            <summary>
+            Vaciar textbox si el usuario entra!
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:SpaceLauncher.FormRegister.txtpass_Leave(System.Object,System.EventArgs)">
+            <summary>
+            Rellenar textbox si el usuario no ha introducido nada!
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:SpaceLauncher.FormRegister.txtEmail_Enter(System.Object,System.EventArgs)">
+            <summary>
+            Vaciar textbox si el usuario entra!
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:SpaceLauncher.FormRegister.txtEmail_Leave(System.Object,System.EventArgs)">
+            <summary>
+            Rellenar textbox si el usuario no ha introducido nada!
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:SpaceLauncher.FormRegister.btncerrar_Click(System.Object,System.EventArgs)">
+            <summary>
+            Boton cerrar Programa!
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:SpaceLauncher.FormRegister.btnminimizar_Click(System.Object,System.EventArgs)">
+            <summary>
+            Boton minimizar Programa!
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:SpaceLauncher.FormRegister.Form1_MouseDown(System.Object,System.Windows.Forms.MouseEventArgs)">
+            <summary>
+            Codigo para poder mover la ventana!
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:SpaceLauncher.FormRegister.panel1_MouseDown(System.Object,System.Windows.Forms.MouseEventArgs)">
+            <summary>
+            Codigo para poder mover la ventana!
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:SpaceLauncher.FormRegister.btnLogin_Click(System.Object,System.EventArgs)">
+            <summary>
+            Acciones al pulsar al boton Register!
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:SpaceLauncher.FormRegister.registrado_LinkClicked(System.Object,System.Windows.Forms.LinkLabelLinkClickedEventArgs)">
+            <summary>
+            Accion al decir que tienes cuenta!
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="F:SpaceLauncher.FormRegister.components">
+            <summary>
+            Variable del diseñador necesaria.
+            </summary>
+        </member>
+        <member name="M:SpaceLauncher.FormRegister.Dispose(System.Boolean)">
+            <summary>
+            Limpiar los recursos que se estén usando.
+            </summary>
+            <param name="disposing">true si los recursos administrados se deben desechar; false en caso contrario.</param>
+        </member>
+        <member name="M:SpaceLauncher.FormRegister.InitializeComponent">
+            <summary>
+            Método necesario para admitir el Diseñador. No se puede modificar
+            el contenido de este método con el editor de código.
+            </summary>
+        </member>
+        <member name="M:SpaceLauncher.FormPrincipal.#ctor(System.String)">
+            <summary>
+            Cargar FormularioPrincipal!
+            </summary>
+            <param name="user"></param>
+        </member>
+        <member name="M:SpaceLauncher.FormPrincipal.txtpass_Enter(System.Object,System.EventArgs)">
+            <summary>
+            Vaciar textbox cuando el usuario entre!
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:SpaceLauncher.FormPrincipal.txtpass_Leave(System.Object,System.EventArgs)">
+            <summary>
+            Rellenar textbox si el usuario sale sin poner nada!
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:SpaceLauncher.FormPrincipal.txtNewEmail_Enter(System.Object,System.EventArgs)">
+            <summary>
+            Vaciar textbox cuando el usuario entre!
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:SpaceLauncher.FormPrincipal.txtNewEmail_Leave(System.Object,System.EventArgs)">
+            <summary>
+            Rellenar textbox si el usuario sale sin poner nada!
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:SpaceLauncher.FormPrincipal.txtNewPass_Enter(System.Object,System.EventArgs)">
+            <summary>
+            Vaciar textbox cuando el usuario entre!
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:SpaceLauncher.FormPrincipal.txtNewPass_Leave(System.Object,System.EventArgs)">
+            <summary>
+            Rellenar textbox si el usuario sale sin poner nada!
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:SpaceLauncher.FormPrincipal.labelhoras">
+            <summary>
+            Cargar datos a la pantalla.
+            </summary>
+        </member>
+        <member name="M:SpaceLauncher.FormPrincipal.FormPrincipal_Load(System.Object,System.EventArgs)">
+            
+        </member>
+        <member name="M:SpaceLauncher.FormPrincipal.top_MouseDown(System.Object,System.Windows.Forms.MouseEventArgs)">
+            <summary>
+            Accion para mover pantalla
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:SpaceLauncher.FormPrincipal.btncerrar_Click(System.Object,System.EventArgs)">
+            <summary>
+            Boton para cerrar Programa! 
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:SpaceLauncher.FormPrincipal.btnminimizar_Click(System.Object,System.EventArgs)">
+            <summary>
+            Boton para minimizar el programa!
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:SpaceLauncher.FormPrincipal.buttonNews_Click(System.Object,System.EventArgs)">
+            <summary>
+            Boton pestaña principal!
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:SpaceLauncher.FormPrincipal.bunifuFlatButton8_Click(System.Object,System.EventArgs)">
+            <summary>
+            Boton pestaña buscador!
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:SpaceLauncher.FormPrincipal.bunifuFlatButton2_Click(System.Object,System.EventArgs)">
+            <summary>
+            Accion al ir a pestaña juego!
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:SpaceLauncher.FormPrincipal.bunifuFlatButton3_Click(System.Object,System.EventArgs)">
+            <summary>
+            Accion al ir a pestaña juego!
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:SpaceLauncher.FormPrincipal.bunifuFlatButton3_Click_1(System.Object,System.EventArgs)">
+            <summary>
+            Accion al ir a pestaña juego!
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:SpaceLauncher.FormPrincipal.bunifuFlatButton2_Click_2(System.Object,System.EventArgs)">
+            <summary>
+            Accion al ir a pestaña juego!
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:SpaceLauncher.FormPrincipal.bunifuFlatButton1_Click(System.Object,System.EventArgs)">
+            <summary>
+            Accion al pulsar boton perfil!
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:SpaceLauncher.FormPrincipal.pictureBox5_Click(System.Object,System.EventArgs)">
+            <summary>
+            Accion al pulsar imagen!
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:SpaceLauncher.FormPrincipal.pictureBox6_Click(System.Object,System.EventArgs)">
+            <summary>
+            Accion al pulsar imagen!
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:SpaceLauncher.FormPrincipal.pictureBox8_Click(System.Object,System.EventArgs)">
+            <summary>
+            Accion al pulsar imagen!
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:SpaceLauncher.FormPrincipal.pictureBox7_Click(System.Object,System.EventArgs)">
+            <summary>
+            Accion al pulsar imagen!
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:SpaceLauncher.FormPrincipal.bunifuThinButton21_Click(System.Object,System.EventArgs)">
+            <summary>
+            Accion al Cerrar sesion!
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:SpaceLauncher.FormPrincipal.bunifuFlatButton4_Click(System.Object,System.EventArgs)">
+            <summary>
+            iniciar juego wegi.
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:SpaceLauncher.FormPrincipal.bunifuFlatButton5_Click(System.Object,System.EventArgs)">
+            <summary>
+            iniciar juego Beta.
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:SpaceLauncher.FormPrincipal.bunifuFlatButton7_Click(System.Object,System.EventArgs)">
+            <summary>
+            iniciar juego pde.
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:SpaceLauncher.FormPrincipal.bunifuFlatButton3_Click_2(System.Object,System.EventArgs)">
+            <summary>
+            Iniciar juego arquer
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:SpaceLauncher.FormPrincipal.button1_Click(System.Object,System.EventArgs)">
+            <summary>
+            Acciones al pulsar el boton de buscar.
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:SpaceLauncher.FormPrincipal.buscadortabla_CellDoubleClick(System.Object,System.Windows.Forms.DataGridViewCellEventArgs)">
+            <summary>
+            Acciones al dar doble click a un registro de la tabla.
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:SpaceLauncher.FormPrincipal.button2_Click(System.Object,System.EventArgs)">
+            <summary>
+            Boton para iniciar la ventana de logs.
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:SpaceLauncher.FormPrincipal.bunifuFlatButton2_Click_1(System.Object,System.EventArgs)">
+            <summary>
+            Boton para modificar usuario.
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:SpaceLauncher.FormPrincipal.jugar(System.String)">
+            <summary>
+            Metodo para iniciar juegos i contar el tiempo jugado.
+            </summary>
+            <param name="game"></param>
+        </member>
+        <member name="F:SpaceLauncher.FormPrincipal.components">
+            <summary>
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:SpaceLauncher.FormPrincipal.Dispose(System.Boolean)">
+            <summary>
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:SpaceLauncher.FormPrincipal.InitializeComponent">
+            <summary>
+            Required method for Designer support - do not modify
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="M:SpaceLauncher.FormLogin.textBox1_Enter(System.Object,System.EventArgs)">
+            <summary>
+            Vaciar textBox cuando el usuario entre en ella!
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:SpaceLauncher.FormLogin.textBox1_Leave(System.Object,System.EventArgs)">
+            <summary>
+            Llenar textbox si el usuario sale sin hacer nada dentro!
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:SpaceLauncher.FormLogin.txtpass_Enter(System.Object,System.EventArgs)">
+            <summary>
+            Vaciar textBox cuando el usuario entre en ella!
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:SpaceLauncher.FormLogin.txtpass_Leave(System.Object,System.EventArgs)">
+            <summary>
+            Llenar textbox si el usuario sale sin hacer nada dentro!
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:SpaceLauncher.FormLogin.btncerrar_Click(System.Object,System.EventArgs)">
+            <summary>
+            Boton cerrar Programa!
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:SpaceLauncher.FormLogin.btnminimizar_Click(System.Object,System.EventArgs)">
+            <summary>
+            Boton minimizar Programa!
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:SpaceLauncher.FormLogin.Form1_MouseDown(System.Object,System.Windows.Forms.MouseEventArgs)">
+            <summary>
+            Accion para poder mover la ventana!
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:SpaceLauncher.FormLogin.panel1_MouseDown(System.Object,System.Windows.Forms.MouseEventArgs)">
+            <summary>
+            Accion para poder mover la ventana!
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:SpaceLauncher.FormLogin.btnLogin_Click(System.Object,System.EventArgs)">
+            <summary>
+            Accion al pulsar boton login.
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:SpaceLauncher.FormLogin.linkpass_LinkClicked_1(System.Object,System.Windows.Forms.LinkLabelLinkClickedEventArgs)">
+            <summary>
+            Accion al decir que no estas registrado!
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="F:SpaceLauncher.FormLogin.components">
+            <summary>
+            Variable del diseñador necesaria.
+            </summary>
+        </member>
+        <member name="M:SpaceLauncher.FormLogin.Dispose(System.Boolean)">
+            <summary>
+            Limpiar los recursos que se estén usando.
+            </summary>
+            <param name="disposing">true si los recursos administrados se deben desechar; false en caso contrario.</param>
+        </member>
+        <member name="M:SpaceLauncher.FormLogin.InitializeComponent">
+            <summary>
+            Método necesario para admitir el Diseñador. No se puede modificar
+            el contenido de este método con el editor de código.
+            </summary>
+        </member>
+        <member name="M:SpaceLauncher.Program.Main">
+            <summary>
+            Punto de entrada principal para la aplicación.
+            </summary>
+        </member>
+        <member name="T:SpaceLauncher.Properties.Resources">
+            <summary>
+              Clase de recurso fuertemente tipado para buscar cadenas traducidas, etc.
+            </summary>
+        </member>
+        <member name="P:SpaceLauncher.Properties.Resources.ResourceManager">
+            <summary>
+              Devuelve la instancia ResourceManager almacenada en caché utilizada por esta clase.
+            </summary>
+        </member>
+        <member name="P:SpaceLauncher.Properties.Resources.Culture">
+            <summary>
+              Invalida la propiedad CurrentUICulture del subproceso actual para todas las
+              búsquedas de recursos usando esta clase de recursos fuertemente tipados.
+            </summary>
+        </member>
+    </members>
+</doc>

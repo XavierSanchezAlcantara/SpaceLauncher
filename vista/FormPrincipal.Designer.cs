@@ -427,7 +427,7 @@
             this.SpaceInvadersButton.BackColor = System.Drawing.Color.Transparent;
             resources.ApplyResources(this.SpaceInvadersButton, "SpaceInvadersButton");
             this.SpaceInvadersButton.BorderRadius = 0;
-            this.SpaceInvadersButton.ButtonText = "Space Invaders";
+            this.SpaceInvadersButton.ButtonText = "JuegoBeta";
             this.SpaceInvadersButton.Cursor = System.Windows.Forms.Cursors.Hand;
             this.SpaceInvadersButton.DisabledColor = System.Drawing.Color.Gray;
             this.SpaceInvadersButton.Iconcolor = System.Drawing.Color.Transparent;

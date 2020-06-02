@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace SpaceLauncher.model
 {
-    class juego
+    public class juego
     {
         int idJuego;
         string nombreJuego;

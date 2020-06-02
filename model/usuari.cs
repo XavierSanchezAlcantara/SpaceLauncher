@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace SpaceLauncher.model
 {
-    class usuari
+    public class usuari
     {
         String usuario;
         String email;

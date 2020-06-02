@@ -110,6 +110,6 @@ C:\Users\xavi\Desktop\SpaceLauncher\SpaceLauncher\obj\Debug\SpaceLauncher.TrustI
 C:\Users\xavi\Desktop\SpaceLauncher\SpaceLauncher\obj\Debug\SpaceLauncher.exe.manifest
 C:\Users\xavi\Desktop\SpaceLauncher\SpaceLauncher\obj\Debug\SpaceLauncher.application
 C:\Users\xavi\Desktop\SpaceLauncher\SpaceLauncher\obj\Debug\SpaceLauncher.FormRegister.resources
-C:\Users\xavi\Desktop\SpaceLauncher\SpaceLauncher\obj\Debug\SpaceLauncher.vista.formLogs.resources
 C:\Users\xavi\Desktop\SpaceLauncher\SpaceLauncher\bin\Debug\SpaceLauncher.xml
 C:\Users\xavi\Desktop\SpaceLauncher\SpaceLauncher\obj\Debug\SpaceLauncher.csprojAssemblyReference.cache
+C:\Users\xavi\Desktop\SpaceLauncher\SpaceLauncher\obj\Debug\SpaceLauncher.vista.FormPrincipal.resources

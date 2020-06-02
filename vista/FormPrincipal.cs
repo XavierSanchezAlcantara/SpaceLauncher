@@ -554,24 +554,24 @@ namespace SpaceLauncher
             if (buscadortabla.Rows[e.RowIndex].Cells[e.ColumnIndex].Value != null && e.RowIndex >= 0)
             {
                 buscadortabla.CurrentCell.Selected = true;
-                posicionIdJuego = buscadortabla.Rows[e.RowIndex].Cells[1].FormattedValue.ToString();
-                numero = int.Parse(posicionIdJuego);
-                if (numero == 1)
+                posicionIdJuego = buscadortabla.Rows[e.RowIndex].Cells[0].FormattedValue.ToString();
+
+                if (posicionIdJuego == "wegi")
                 {
                     this.tabControl.SelectedTab = game1;
 
                 }
-                else if (numero == 2)
+                else if (posicionIdJuego == "JuegoBeta")
                 {
                     this.tabControl.SelectedTab = game2;
 
                 }
-                else if (numero == 3)
+                else if (posicionIdJuego == "joc_pde")
                 {
                     this.tabControl.SelectedTab = game3;
 
                 }
-                else if (numero == 4)
+                else if (posicionIdJuego == "arquer")
                 {
                     this.tabControl.SelectedTab = game4;
 
@@ -593,7 +593,7 @@ namespace SpaceLauncher
         /// <param name="e"></param>
         private void button2_Click(object sender, EventArgs e)
         {
-            formLogs form = new formLogs();
+            vista.FormPrincipal form = new vista.FormPrincipal();
             form.Show();
         }
 

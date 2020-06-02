@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace SpaceLauncher.model
 {
-    class tiempoJugado
+    public class tiempoJugado
     {
         String nombreJuego;
         String nombreUsuario;
